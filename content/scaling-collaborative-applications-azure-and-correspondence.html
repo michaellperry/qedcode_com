@@ -1,0 +1,269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" dir="ltr">
+
+<!-- Mirrored from qedcode.com/content/scaling-collaborative-applications-azure-and-correspondence by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 13 Jan 2017 12:22:19 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Scaling collaborative applications with Azure and Correspondence | Q.E.D. Code</title>
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="http://qedcode.com/misc/favicon.ico" type="image/x-icon" />
+  <link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/modules/book/book.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/modules/node/node.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/modules/system/defaults.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/modules/system/system.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/modules/system/system-menus.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/modules/user/user.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/sites/all/modules/mollom/mollom.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/sites/all/modules/views/css/views.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/modules/comment/comment.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/themes/theme073/style.css?2" />
+  <script type="text/javascript" src="http://qedcode.com/misc/jquery.js?2"></script>
+<script type="text/javascript" src="http://qedcode.com/misc/drupal.js?2"></script>
+<script type="text/javascript" src="http://qedcode.com/sites/all/modules/google_analytics/googleanalytics.js?2"></script>
+<script type="text/javascript" src="http://qedcode.com/sites/all/modules/mollom/mollom.js?2"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "googleanalytics": { "trackOutbound": 1, "trackMailto": 1, "trackDownload": 1, "trackDownloadExtensions": "7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip" } });
+//--><!]]>
+</script>
+  
+</head>
+  
+<body>
+    <table id="main">
+        <tr>
+            <td width="100%" class="header">
+            	<div class="top-left">
+                	<div class="top-right">
+                    	<table width="100%">
+                            <tr>
+                                <td width="100%" style="height:195px;">
+                                    <table width="100%">
+                                        <tr>
+                                            <td width="">
+                                                                                                    <a href="../index.html" title="Home"><img src="http://qedcode.com/themes/theme073/images/logo.png" alt="Home" border="0" class="logo" /></a><br />
+                                                                                                                                                
+                                                                                            </td>
+                                            <td width="270">
+                                                <div class="search-box">
+                                                                                                    </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%" style="height:54px;">
+                                                                            <div class="pr-menu">
+                                            <ul class="links primary-links"><li class="menu-227 first"><a href="../node.html" title="">Latest Article</a></li>
+<li class="menu-339"><a href="../podcast.html" title="Q.E.D. Code Podcast">Podcast</a></li>
+<li class="menu-219"><a href="../theory.html" title="">Theory</a></li>
+<li class="menu-220"><a href="../practice.html" title="">Practice</a></li>
+<li class="menu-221 last"><a href="../speaking.html" title="">Speaking</a></li>
+</ul>                                            <br class="clear" />
+                                        </div>
+                                                                    </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td width="100%">
+                <table width="100%" >
+                    <tr>
+                        <td width="189">
+                            <div class="left2">
+                                                                    <table width="100%">
+                                      <tr>
+                                        <td width="100%">
+                                            <div class="block block-block" id="block-block-2">
+	<div class="block-bot">
+    	<div class="block-top">
+        	<div class="block-indent">
+                <div class="title">
+                    <h3>About me</h3>
+                </div>
+                <div class="content"><div style="margin: 15px;">
+<p style="margin-bottom: 7px;">Michael L Perry</p>
+<p><a href="http://improvingenterprises.com/"><img src="../images/IE-Logo.png" width="145" alt="Improving Enterprises" /></a></p>
+<p style="margin-bottom: 15px;">Principal Consultant</p>
+<p><a href="http://twitter.com/michaellperry">@michaellperry</a></p>
+</div>
+</div>
+            </div>
+        </div>
+    </div>
+</div><div class="block block-user" id="block-user-0">
+	<div class="block-bot">
+    	<div class="block-top">
+        	<div class="block-indent">
+                <div class="title">
+                    <h3>User login</h3>
+                </div>
+                <div class="content"><form action="http://qedcode.com/content/scaling-collaborative-applications-azure-and-correspondence?destination=node%2F87"  accept-charset="UTF-8" method="post" id="user-login-form">
+<div><div class="form-item" id="edit-name-wrapper">
+ <label for="edit-name">Username: <span class="form-required" title="This field is required.">*</span></label>
+ <input type="text" maxlength="60" name="name" id="edit-name" size="15" value="" class="form-text required" />
+</div>
+<div class="form-item" id="edit-pass-wrapper">
+ <label for="edit-pass">Password: <span class="form-required" title="This field is required.">*</span></label>
+ <input type="password" name="pass" id="edit-pass"  maxlength="60"  size="15"  class="form-text required" />
+</div>
+<input type="submit" name="op" id="edit-submit" value="Log in"  class="form-submit" />
+<div class="item-list"><ul><li class="first last"><a href="../user/password.html" title="Request new password via e-mail.">Request new password</a></li>
+</ul></div><input type="hidden" name="form_build_id" id="form-f662626a5473af7ef0601089a27d4a64" value="form-f662626a5473af7ef0601089a27d4a64"  />
+<input type="hidden" name="form_id" id="edit-user-login-block" value="user_login_block"  />
+
+</div></form>
+</div>
+            </div>
+        </div>
+    </div>
+</div>                                        </td>
+                                      </tr>
+                                    </table>
+                                                            </div>
+                        </td>
+                        <td width="0">
+                            <div class="right2">
+                                                            </div>
+                        </td>
+                        <td width="" class="cont-row">
+                            <div class="border-left">
+                                <div class="border-right">
+                                    <div class="border-bot">
+                                        <div class="border-top">
+                                            <div class="corner-bot-left">
+                                                <div class="corner-bot-right">
+                                                    <div class="corner-top-left">
+                                                        <div class="corner-top-right">
+                                                            <div class="cent">
+                                                                                                                                                                                                
+                                                                                                                        
+                                                                <h2>Scaling collaborative applications with Azure and Correspondence</h2>
+                                                                                                                                                                                                                                                                 
+                                                                                                                    
+                                                                                                                    
+                                                              <!-- start main content -->
+                                                            <div class="node">
+	    <div class="taxonomy"></div>
+  
+    <div class="content"><p>Azure is a great way to quickly deploy and scale your web sites. Correspondence is a rich framework for bringing collaborative experiences to multiple platforms. When these two come together, amazing things can happen.</p>
+<p>The traditional web application has multiple stateless servers backed by a single database. You can scale out by adding new web servers, but this only goes so far if they all connect to the same database. Once you have saturated the database, where can you go?</p>
+<p>The answer is to allow each web server to have its own local copy of the data, completely isolated from the other servers. Each new instance can serve requests without having to connect to an shared resource, like a SQL database. But how do you keep all of those local copies synchronized? That’s where Correspondence comes in.</p>
+<h3><a href="http://qedcode.com/sites/default/files/a364cdae6515_BC39/image.png"><img title="image" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; float: right; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px" border="0" alt="image" align="right" src="http://qedcode.com/sites/default/files/a364cdae6515_BC39/image_thumb.png" width="516" height="480" /></a>Correspondence</h3>
+<p>Correspondence is a collaborative application framework. It synchronizes data across several clients, including Windows Phone apps, WPF and Silverlight desktop apps, and Web sites. When you deploy a new instance of a Correspondence web site, it will pull down a copy of the application’s data locally. It serves all of its requests out of that local copy, so instances never compete for shared resources. And if the user changes the data on one server, it is pushed to all of the other servers so that they are kept up-to-date.</p>
+<p>So where is that data coming from? And how is it being shared? At the heart of Correspondence is a distributor. Unlike a shared database, Correspondence applications don’t send every request to the distributor, so its load is much lighter. Instead, an application subscribes to the distributor. Each subscriber will receive changes as they occur. An application publishes data to the distributor, which in turn pushes it down to all of the other subscribers.</p>
+<p>A web application instance is one such subscriber. When it receives data from the distributor, it stores it in the App_Data folder. Each Azure instance has its own App_Data folder. The Correspondence framework manages that App_Data folder and turns it into objects that the application can use.</p>
+<h3>MyCon</h3>
+<p>You can find an example of a Correspondence web application at <a href="https://github.com/MichaelLPerry/MyCon">https://github.com/MichaelLPerry/MyCon</a>. Pull down the code using either Git or the Zip download link. You will need to enable NuGet Package Restore in order to build. This example app is running on Azure at <a href="http://awesomefest.azurewebsites.net/">http://awesomefest.azurewebsites.net/</a>.</p>
+<p>When you first run the solution, it will throw an exception indicating that you don’t have a conference ID. The exception contains a conference ID randomly generated for you. Just copy this conference ID into the web.config file and CommonSettings.cs.</p>
+<p>MyCon is a template for a conference web site and phone application. It includes:</p>
+<ul>
+<li>Silverlight 4 client for entering conference, speaker, and session data. </li>
+<li>Web site for viewing that data. </li>
+<li>Windows Phone application for attendees to use at the venue. </li>
+</ul>
+<p>We will be concentrating on the web site. This project was built on MVC 3. It configures Correspondence to use the App_Data folder to store data. It also configures it to synchronize with an HTTP distributor. You will find that configuration in the SynchronizationService class:</p>
+<pre class="code"><span style="color: blue">public void </span>Initialize()
+{
+    <span style="color: #2b91af">HTTPConfigurationProvider </span>configurationProvider = <span style="color: blue">new </span><span style="color: #2b91af">HTTPConfigurationProvider</span>();
+    <span style="color: blue">string </span>path = <span style="color: #2b91af">Path</span>.Combine(<span style="color: #2b91af">HostingEnvironment</span>.MapPath(<span style="color: #a31515">&quot;~/App_Data&quot;</span>), <span style="color: #a31515">&quot;Correspondence&quot;</span>);
+    _community = <span style="color: blue">new </span><span style="color: #2b91af">Community</span>(<span style="color: #2b91af">FileStreamStorageStrategy</span>.Load(path))
+        .AddAsynchronousCommunicationStrategy(<span style="color: blue">new </span><span style="color: #2b91af">BinaryHTTPAsynchronousCommunicationStrategy</span>(configurationProvider))
+        .Register&lt;<span style="color: #2b91af">CorrespondenceModel</span>&gt;()
+        .Subscribe(() =&gt; _conference)
+        ;
+}</pre><p>The HTTP configuration provider loads the settings from web.config that identify the distributor:</p>
+<pre class="code">    <span style="color: blue">&lt;</span><span style="color: #a31515">add </span><span style="color: red">key</span><span style="color: blue">=</span>&quot;<span style="color: blue">CorrespondenceAddress</span>&quot; <span style="color: red">value</span><span style="color: blue">=</span>&quot;<span style="color: blue">https://api.facetedworlds.com/correspondence_server_web/bin</span>&quot; <span style="color: blue">/&gt;
+    &lt;</span><span style="color: #a31515">add </span><span style="color: red">key</span><span style="color: blue">=</span>&quot;<span style="color: blue">CorrespondenceAPIKey</span>&quot; <span style="color: red">value</span><span style="color: blue">=</span>&quot;<span style="color: blue">*******</span>&quot; <span style="color: blue">/&gt;
+    &lt;</span><span style="color: #a31515">add </span><span style="color: red">key</span><span style="color: blue">=</span>&quot;<span style="color: blue">CorrespondencePollingIntervalSeconds</span>&quot; <span style="color: red">value</span><span style="color: blue">=</span>&quot;<span style="color: blue">120</span>&quot; <span style="color: blue">/&gt;</span></pre><p>This distributor is hosted by my mobility company, Faceted Worlds. Feel free to use this host for your own instances of MyCon.</p>
+<p>The last couple of lines of the configuration are registering the model and subscribing to the conference. This is where Correspondence is different from other frameworks. The model is only on the client, and the client subscribes to facts.</p>
+<h3>Facts</h3>
+<p>To make the data easier to distribute via publish/subscribe, Correspondence does not use a relational, document, or object-oriented model. Instead, it models data as historical facts. A historical fact is both a message and a record. As a message, it can be published and subscribed to. As a record, it can be queried.</p>
+<p>The facts for the MyCon application are described in the file Model.fact. This file is located in the project FacetedWorlds.MyCon.Model under the WP7 folder. The other clients simply link to this one model. Facts are described as related data structures. For example:</p>
+<pre class="code">fact RatingQuestion {
+key:
+    string text;
+}
+
+fact EssayQuestion {
+key:
+    string text;
+}
+
+fact Survey {
+key:
+    RatingQuestion *ratingQuestions;
+    EssayQuestion *essayQuestions;
+}</pre><p>A fact can include references to other facts within its key. This acts like a foreign key in a relational database, allowing queries to join from the parent record to the child records. Parent facts are called “predecessors”, while child facts are called “successors”. That’s because predecessors come first in history.</p>
+<p>In some cases the successor is published to its predecessor. For example:</p>
+<pre class="code">fact ConferenceNotice {
+key:
+    publish Conference conference;
+    time timeSent;
+    string text;
+}</pre><p>When a successor is published, the application can subscribe to the predecessor. This will cause the distributor to push successors down to the application. In MyCon, each of the instances subscribes to the conference so that they all receive updates to conference data.</p>
+<h3>Deploy to Azure</h3>
+<p>Deploying a Correspondence web site to Azure is incredibly easy. First, sign up for an Azure account at <a href="http://windowsazure.com/">http://windowsazure.com</a>. Click on the “Portal” link and create a new Web Site. Use the “Quick Create” option. We won’t be creating a new web site with a database, since Correspondence will be our data store.</p>
+<p><a href="http://qedcode.com/sites/default/files/a364cdae6515_BC39/image_3.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://qedcode.com/sites/default/files/a364cdae6515_BC39/image_thumb_3.png" width="178" height="357" /></a>&#160;<a href="http://qedcode.com/sites/default/files/a364cdae6515_BC39/image_4.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://qedcode.com/sites/default/files/a364cdae6515_BC39/image_thumb_4.png" width="639" height="356" /></a></p>
+<p>Click on the arrow next to your application name to go to the application details. From here, click “Download publish profile”.</p>
+<p><a href="http://qedcode.com/sites/default/files/a364cdae6515_BC39/image_5.png"><img title="image" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px" border="0" alt="image" src="http://qedcode.com/sites/default/files/a364cdae6515_BC39/image_thumb_5.png" width="241" height="216" /></a></p>
+<p>Back in Visual Studio, right-click on the FacetedWorlds.MyCon.Web project and select “Publish”. Click “Import” to import the publish profile that you downloaded from Azure. All of the settings that you need to publish your new site are copied into the dialog. Just click “Publish” and it will be uploaded for you. Once the site is published, it will open in a web browser.</p>
+<h3><img style="float: right; display: inline" align="right" src="http://qedcode.com/sites/default/files/27115a2be8c6_FE69/Conference.png" width="297" height="167" />Enter session data</h3>
+<p>Next, start up the FacetedWorlds.MyCon application in the Silverlight 4 folder. Using this application, you can enter a conference name, tracks, speakers, and sessions. Add rooms and times to the schedule grid, then drag the sessions onto the grid to arrange them.</p>
+<p>As you enter data about the conference, it is published to the Correspondence distributor. The data is immediately pushed to all subscribers. Each Windows Phone running the conference app will subscribe to these changes. And so will each instance of the web site that you just deployed. Refresh the browser page to see that the web site has updated. It will serve the conference schedule from its own cache in App_Data. It does not need to hit a central database to serve a request.</p>
+<h3></h3>
+<h3>Scale out</h3>
+<p><a href="http://qedcode.com/sites/default/files/a364cdae6515_BC39/image_6.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; float: right; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" align="right" src="http://qedcode.com/sites/default/files/a364cdae6515_BC39/image_thumb_6.png" width="336" height="283" /></a>Scaling out by adding new Azure instances is also extremely easy. Click on the “Scale” menu, move the slider over to allocate more instances, and then click “Save”.</p>
+<p>When you add a new instance, it will subscribe to the conference. The distributor will send it all of the conference data entered so far. It will also set up a push notification channel for future changes. That way, whenever you change a session schedule using the Silverlight application, the change will be immediately reflected in the web application. It will be pushed to all instances of the web app so that they all remain synchronized.</p>
+<p>Correspondence takes care of the hard problem of synchronizing data across independent instances of a web application. This allows the application to scale almost linearly as new instances are added. The instances don’t have a shared resource like a relational database that has to be available to respond to every request. Each instance can simply serve requests out of its own local copy in its App_Data folder.</p>
+<p>Allocating new instances in Azure is a simple matter of moving a slider. As the big day approaches, ramp up the number of instances to handle new load. When the day has passed, ramp it back down to conserve resources. Correspondence and Azure are a powerful combination for creating scalable web sites.</p>
+<p>For more information on how to build a Correspondence application, please visit <a href="http://correspondencecloud.com/">http://correspondencecloud.com</a>.</p>
+</div>
+    <br />
+        	<div class="links-align">
+            <div class="bg-links">
+                <div class="links-left">
+                    <div class="links-right">
+                        <div class="links"><ul class="links inline"><li class="blog_usernames_blog first"><a href="../blogs/michael-l-perry.html" title="Read Michael L Perry&#039;s latest blog entries.">Michael L Perry&#039;s blog</a></li>
+<li class="comment_add last"><a href="http://qedcode.com/comment/reply/87#comment-form" title="Share your thoughts and opinions related to this posting.">Add new comment</a></li>
+</ul></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	    <br class="clear" />    
+    </div>                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <div id="footer">
+    	<div class="foot">
+        	                <span><a rel="license" href="http://creativecommons.org/licenses/by/3.0/us/"><img alt="Creative Commons License" src="../../licensebuttons.net/l/by/3.0/us/88x31.png" /></a><br /><span dc="http://purl.org/dc/elements/1.1/" href="http://purl.org/dc/dcmitype/Text" property="title" rel="type">Q.E.D. Code</span> by <a cc="http://creativecommons.org/ns#" href="../index.html" property="attributionName" rel="attributionURL">Michael L Perry</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/us/">Creative Commons Attribution 3.0 United States License</a>.</span>
+                    </div>
+    </div>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var _gaq = _gaq || [];_gaq.push(["_setAccount", "UA-389401-7"]);_gaq.push(["_trackPageview"]);(function() {var ga = document.createElement("script");ga.type = "text/javascript";ga.async = true;ga.src = ("https:" == document.location.protocol ? "https://ssl" : "http://www") + ".google-analytics.com/ga.js";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(ga, s);})();
+//--><!]]>
+</script>
+</body>
+
+<!-- Mirrored from qedcode.com/content/scaling-collaborative-applications-azure-and-correspondence by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 13 Jan 2017 12:22:19 GMT -->
+</html>

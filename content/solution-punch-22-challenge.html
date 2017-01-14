@@ -1,0 +1,502 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" dir="ltr">
+
+<!-- Mirrored from qedcode.com/content/solution-punch-22-challenge by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 13 Jan 2017 12:21:33 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>A Solution to the Punch 22 Challenge | Q.E.D. Code</title>
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="http://qedcode.com/misc/favicon.ico" type="image/x-icon" />
+  <link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/modules/book/book.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/modules/node/node.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/modules/system/defaults.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/modules/system/system.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/modules/system/system-menus.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/modules/user/user.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/sites/all/modules/mollom/mollom.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/sites/all/modules/views/css/views.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/modules/comment/comment.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/themes/theme073/style.css?2" />
+  <script type="text/javascript" src="http://qedcode.com/misc/jquery.js?2"></script>
+<script type="text/javascript" src="http://qedcode.com/misc/drupal.js?2"></script>
+<script type="text/javascript" src="http://qedcode.com/sites/all/modules/google_analytics/googleanalytics.js?2"></script>
+<script type="text/javascript" src="http://qedcode.com/sites/all/modules/mollom/mollom.js?2"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "googleanalytics": { "trackOutbound": 1, "trackMailto": 1, "trackDownload": 1, "trackDownloadExtensions": "7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip" } });
+//--><!]]>
+</script>
+  
+</head>
+  
+<body>
+    <table id="main">
+        <tr>
+            <td width="100%" class="header">
+            	<div class="top-left">
+                	<div class="top-right">
+                    	<table width="100%">
+                            <tr>
+                                <td width="100%" style="height:195px;">
+                                    <table width="100%">
+                                        <tr>
+                                            <td width="">
+                                                                                                    <a href="../index.html" title="Home"><img src="http://qedcode.com/themes/theme073/images/logo.png" alt="Home" border="0" class="logo" /></a><br />
+                                                                                                                                                
+                                                                                            </td>
+                                            <td width="270">
+                                                <div class="search-box">
+                                                                                                    </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%" style="height:54px;">
+                                                                            <div class="pr-menu">
+                                            <ul class="links primary-links"><li class="menu-227 first"><a href="../node.html" title="">Latest Article</a></li>
+<li class="menu-339"><a href="../podcast.html" title="Q.E.D. Code Podcast">Podcast</a></li>
+<li class="menu-219"><a href="../theory.html" title="">Theory</a></li>
+<li class="menu-220"><a href="../practice.html" title="">Practice</a></li>
+<li class="menu-221 last"><a href="../speaking.html" title="">Speaking</a></li>
+</ul>                                            <br class="clear" />
+                                        </div>
+                                                                    </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td width="100%">
+                <table width="100%" >
+                    <tr>
+                        <td width="189">
+                            <div class="left2">
+                                                                    <table width="100%">
+                                      <tr>
+                                        <td width="100%">
+                                            <div class="block block-block" id="block-block-2">
+	<div class="block-bot">
+    	<div class="block-top">
+        	<div class="block-indent">
+                <div class="title">
+                    <h3>About me</h3>
+                </div>
+                <div class="content"><div style="margin: 15px;">
+<p style="margin-bottom: 7px;">Michael L Perry</p>
+<p><a href="http://improvingenterprises.com/"><img src="../images/IE-Logo.png" width="145" alt="Improving Enterprises" /></a></p>
+<p style="margin-bottom: 15px;">Principal Consultant</p>
+<p><a href="http://twitter.com/michaellperry">@michaellperry</a></p>
+</div>
+</div>
+            </div>
+        </div>
+    </div>
+</div><div class="block block-user" id="block-user-0">
+	<div class="block-bot">
+    	<div class="block-top">
+        	<div class="block-indent">
+                <div class="title">
+                    <h3>User login</h3>
+                </div>
+                <div class="content"><form action="http://qedcode.com/content/solution-punch-22-challenge?destination=node%2F113"  accept-charset="UTF-8" method="post" id="user-login-form">
+<div><div class="form-item" id="edit-name-wrapper">
+ <label for="edit-name">Username: <span class="form-required" title="This field is required.">*</span></label>
+ <input type="text" maxlength="60" name="name" id="edit-name" size="15" value="" class="form-text required" />
+</div>
+<div class="form-item" id="edit-pass-wrapper">
+ <label for="edit-pass">Password: <span class="form-required" title="This field is required.">*</span></label>
+ <input type="password" name="pass" id="edit-pass"  maxlength="60"  size="15"  class="form-text required" />
+</div>
+<input type="submit" name="op" id="edit-submit" value="Log in"  class="form-submit" />
+<div class="item-list"><ul><li class="first last"><a href="../user/password.html" title="Request new password via e-mail.">Request new password</a></li>
+</ul></div><input type="hidden" name="form_build_id" id="form-e3c963a29692316cc5f62da413da7dcd" value="form-e3c963a29692316cc5f62da413da7dcd"  />
+<input type="hidden" name="form_id" id="edit-user-login-block" value="user_login_block"  />
+
+</div></form>
+</div>
+            </div>
+        </div>
+    </div>
+</div>                                        </td>
+                                      </tr>
+                                    </table>
+                                                            </div>
+                        </td>
+                        <td width="0">
+                            <div class="right2">
+                                                            </div>
+                        </td>
+                        <td width="" class="cont-row">
+                            <div class="border-left">
+                                <div class="border-right">
+                                    <div class="border-bot">
+                                        <div class="border-top">
+                                            <div class="corner-bot-left">
+                                                <div class="corner-bot-right">
+                                                    <div class="corner-top-left">
+                                                        <div class="corner-top-right">
+                                                            <div class="cent">
+                                                                                                                                                                                                
+                                                                                                                        
+                                                                <h2>A Solution to the Punch 22 Challenge</h2>
+                                                                                                                                                                                                                                                                 
+                                                                                                                    
+                                                                                                                    
+                                                              <!-- start main content -->
+                                                            <div class="node">
+	    <div class="taxonomy"></div>
+  
+    <div class="content"><p>The <a href="http://realmode.com/punch22.html">Punch 22 Challenge</a> is to find a 7-bit encoding of the 26 letters of the English alphabet that can be punched on a paper tape … twice. That is, after the tape has been used once with this encoding, it can be fed into a combination reader/writer machine that will punch additional holes to change to a different letter.</p>
+<p>The first thing we notice about this encoding is that it has to have more than one hole pattern assigned to a letter. On the first write, with an unused tape, we write one pattern. On the second write, we choose a different pattern based on the holes that are already punched.</p>
+<p>I’ll let you read the original article for a detailed description of the problem. What follows here is an analysis of the problem and then, if you scroll to the end, the solution. If you want to solve it yourself, stop reading now.</p>
+<h3>Tape costs more than people</h3>
+<p>Apparently, paper is really expensive. I am embarrassed to admit how much time I’ve spent on this problem, but I’m sure you could buy quite a lot of paper tape with my hourly rate for that duration. Nevertheless, once a problem is solved, the solution can be scaled. This may be an academic problem, but others like it have lead to some real advancements in our industry. Huffman Coding. Compression. Reliable magnetic storage.</p>
+<p>At its heart, this is an Information Theory problem. How much information is in two punches of a tape? How can we compress all valid permutations of two characters down to 7 bits? How much of the information about the first character is retained after the second character is punched? And can you reconstruct with some probability the original message that was first written to the tape?</p>
+<p>I love Information Theory, so this problem had me at the start.</p>
+<h3>Reachability</h3>
+<p>The problem is really one of reachability of nodes in a directed acyclic graph. When we punch a hole, we can go forward, but we can’t go back.</p>
+<p><a href="http://qedcode.com/sites/default/files/6f67680e688f_13407/Graph.png"><img title="Graph" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px" border="0" alt="Graph" src="http://qedcode.com/sites/default/files/6f67680e688f_13407/Graph_thumb.png" width="87" height="159" /></a></p>
+<p>If you had 3 bits, they would form a graph that looks a little like a cube.</p>
+<p><a href="http://qedcode.com/sites/default/files/6f67680e688f_13407/Graph_3.png"><img title="Graph" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px" border="0" alt="Graph" src="http://qedcode.com/sites/default/files/6f67680e688f_13407/Graph_thumb_3.png" width="194" height="244" /></a></p>
+<p>The graph of the full 7 bits looks a bit more complex.</p>
+<p><a href="http://qedcode.com/sites/default/files/6f67680e688f_13407/Graph_4.png"><img title="Graph" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px" border="0" alt="Graph" src="http://qedcode.com/sites/default/files/6f67680e688f_13407/Graph_thumb_4.png" width="753" height="160" /></a></p>
+<p>But the concept is the same no matter how big or small the graph. Each of the numbers represents a symbol that we could punch on the tape. The arrows point to all the symbols that we can reach by punching one more hole. We can construct the set of all symbols reachable from a single starting point. These are all the symbols that I could punch over the starting symbol.</p>
+<p>Suppose I had the symbol 42. This is the binary 0101010. It has three holes punched. From there, I could reach the following symbols:</p>
+<p><a href="http://qedcode.com/sites/default/files/6f67680e688f_13407/Graph_5.png"><img title="graph" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px" border="0" alt="graph" src="http://qedcode.com/sites/default/files/6f67680e688f_13407/Graph_thumb_5.png" width="756" height="161" /></a></p>
+<p>This tells me that if there was a 42 on the tape, then I could only punch the 16 symbols that are reachable from that node. That’s key.</p>
+<h3>The initial symbols</h3>
+<p>Let’s review the problem. We need to create an encoding that allows the tape to be reused once. The encoding assigns a letter to each of the 128 possible symbols that I could punch. So what are the rules by which we will use this encoding?</p>
+<p>When the machine needs to punch a letter, it first reads what’s already there. If this is the first time using the tape, then no holes are punched; it’s a zero. In that case, it will punch the initial symbol for the letter.</p>
+<p>The second time through, each cell is going to contain one of the initial symbols. If I want to punch a different letter, then it has to be reachable from that initial symbol. If the current symbol already represents the letter, then you don’t need to change it. You have no idea what letter is coming next, so at least one symbol for every letter has to be reachable from each symbol in the initial set.</p>
+<p>That means that 42 cannot be an initial symbol.</p>
+<p>I can only reach 16 symbols from 42 (including 42 itself). By the pigeon-hole principle, I cannot assign 26 letters to 16 symbols.</p>
+<p>Looking back at the graph, we can see that the symbol at the top – zero – can reach the entire graph. At the second tier, we have symbols with one hole punched. They can reach only those symbols that have that hole punched, which is half of them. The third tier has two holes punched. It cuts reachability in half again. 42 is in the fourth tier, with three holes punched, so it has cut the number in half three times. Each tier can reach half of what the prior tier could. Let’s label the tiers and count how many symbols are in each tier, and how much of the graph they can reach.</p>
+<table cellspacing="0" cellpadding="2" width="401" border="0">
+<tbody>
+<tr>
+<td valign="top" width="134">Tier</td>
+<td valign="top" width="139">Symbols</td>
+<td valign="top" width="126">Reachable</td>
+</tr>
+<tr>
+<td valign="top" width="134">P<sub>0</sub></td>
+<td valign="top" width="139">1</td>
+<td valign="top" width="126">128</td>
+</tr>
+<tr>
+<td valign="top" width="134">P<sub>1</sub></td>
+<td valign="top" width="139">7</td>
+<td valign="top" width="126">64</td>
+</tr>
+<tr>
+<td valign="top" width="134">P<sub>2</sub></td>
+<td valign="top" width="139">21</td>
+<td valign="top" width="126">32</td>
+</tr>
+<tr>
+<td valign="top" width="134">P<sub>3</sub></td>
+<td valign="top" width="139">35</td>
+<td valign="top" width="126">16</td>
+</tr>
+<tr>
+<td valign="top" width="134">P<sub>4</sub></td>
+<td valign="top" width="139">35</td>
+<td valign="top" width="126">8</td>
+</tr>
+<tr>
+<td valign="top" width="134">P<sub>5</sub></td>
+<td valign="top" width="139">21</td>
+<td valign="top" width="126">4</td>
+</tr>
+<tr>
+<td valign="top" width="134">P<sub>6</sub></td>
+<td valign="top" width="139">7</td>
+<td valign="top" width="126">2</td>
+</tr>
+<tr>
+<td valign="top" width="134">P<sub>7</sub></td>
+<td valign="top" width="153">1</td>
+<td valign="top" width="157">1</td>
+</tr>
+</tbody>
+</table>
+<p>Since we need to assign distinct letters to the symbols reachable from every initial symbol, they must all be able to reach at least 26 symbols. All of the initial symbols must be in one of the first three tiers: P<sub>0</sub>, P<sub>1</sub>, or P<sub>2</sub>. Lower tiers cannot reach enough symbols.</p>
+<p>And since we have to assign 26 initial symbols, we have to consume the first three tiers with only 3 slots left. There are a total of 29 symbols available for us to choose. That means that at least 18 of the initial symbols are in P<sub>2</sub>.</p>
+<h3>Parceling the alphabet</h3>
+<p>Now the challenge becomes assigning letters to the remaining tiers to be sure that the alphabet is covered from every symbol in P<sub>2</sub>. The initial symbol at P<sub>2</sub> can reach itself, but the remaining 25 letters need to be accounted for in the lower tiers.</p>
+<p>If we were to solve the problem for P<sub>2</sub>, then P<sub>0</sub> and P<sub>1</sub> would be solved as well. P<sub>0</sub> has only one symbol – zero, and it can already reach the entire graph. P<sub>1</sub> has 7 symbols. Each one can reach 6 symbols in P<sub>2</sub> by punching one of the remaining holes. If any one these 6 symbols can reach the entire alphabet, then so can the initial symbol in P<sub>1</sub>.</p>
+<p>Remember that we have at least 18 initial symbols in P<sub>2</sub>. How do we reach the alphabet from each of those 18 initial symbols? We can flip the problem, and instead ask how we can parcel out the 26 letters so that at least one symbol for each letter is reachable from all 18 of the initial symbols in P<sub>2</sub>.</p>
+<p>Let’s identify 26 sets of symbols that can be reached from at least 18 P<sub>2</sub>s. The first set is easy. It contains only the symbol 127, or binary 1111111. The entire graph can reach this symbol. Unfortunately, there is only of those, and we still have 25 letters to assign.</p>
+<p>Then we can construct a set based on the P<sub>6</sub>s. These are the symbols with 6 ones, such as 126, or binary 1111110. The initial symbols with a one in the final position cannot reach this symbol, so we have to add symbols that they can reach. Each of these P2s has one other bit set, so we need to choose symbols that cover all possible pairs of bits. Let’s draw those symbols from the other sets. Here’s an example:</p>
+<p>P<sub>6</sub>: 1111110 </p>
+<p>P<sub>4</sub>: 0001111 </p>
+<p>P<sub>4</sub>: 1110001</p>
+<p>This set consumes one P<sub>6</sub> and two P<sub>4</sub>s. We only have 7 P<sub>6</sub>s and 35 P<sub>4</sub>s to go around, so if we define 7 such sets, we’ve spent all of our P<sub>6</sub>s and 14 of our P<sub>4</sub>s.</p>
+<p>Let’s see if we can find a set that is less expensive. Again starting with a P<sub>6</sub> and a P<sub>4</sub>, we can subdivide the remaining bits like this.</p>
+<p>P<sub>6</sub>: 1111110 </p>
+<p>P<sub>4</sub>: 0001111 </p>
+<p>P<sub>3</sub>: 0110001 </p>
+<p>P<sub>2</sub>: 1000001</p>
+<p>This takes more symbols, but we’ve spread the cost out a bit more. We can still only have 7 of these, since the P<sub>6</sub>s are the limiting factor, but they leave a lot more of the P<sub>4</sub>s for other sets to use. This set uses a P<sub>2</sub>, which will be the initial symbol for the letter to which it is assigned.</p>
+<p>I’ll let you go through the exercise of identifying the sets that can be reached from the P<sub>2</sub>s. As you do, you can break them down by their cost in terms of symbols from each tier. This is what you will find:</p>
+<table cellspacing="0" cellpadding="2" width="439" border="0">
+<tbody>
+<tr>
+<td valign="top" width="67">Set</td>
+<td valign="top" width="63">P7</td>
+<td valign="top" width="63">P6</td>
+<td valign="top" width="63">P5</td>
+<td valign="top" width="64">P4</td>
+<td valign="top" width="59">P3</td>
+<td valign="top" width="58">P2</td>
+</tr>
+<tr>
+<td valign="top" width="68">S<sub>1</sub></td>
+<td valign="top" width="64">1</td>
+<td valign="top" width="64">&#160;</td>
+<td valign="top" width="64">&#160;</td>
+<td valign="top" width="65">&#160;</td>
+<td valign="top" width="60">&#160;</td>
+<td valign="top" width="58">&#160;</td>
+</tr>
+<tr>
+<td valign="top" width="68">S<sub>2</sub></td>
+<td valign="top" width="65">&#160;</td>
+<td valign="top" width="65">1</td>
+<td valign="top" width="64">&#160;</td>
+<td valign="top" width="65">2</td>
+<td valign="top" width="61">&#160;</td>
+<td valign="top" width="59">&#160;</td>
+</tr>
+<tr>
+<td valign="top" width="68">S<sub>3</sub></td>
+<td valign="top" width="65">&#160;</td>
+<td valign="top" width="65">1</td>
+<td valign="top" width="64">&#160;</td>
+<td valign="top" width="65">1</td>
+<td valign="top" width="62">1</td>
+<td valign="top" width="60">1</td>
+</tr>
+<tr>
+<td valign="top" width="68">S<sub>4</sub></td>
+<td valign="top" width="65">&#160;</td>
+<td valign="top" width="65">&#160;</td>
+<td valign="top" width="64">1</td>
+<td valign="top" width="65">2</td>
+<td valign="top" width="62">1</td>
+<td valign="top" width="60">&#160;</td>
+</tr>
+<tr>
+<td valign="top" width="68">S<sub>5</sub></td>
+<td valign="top" width="65">&#160;</td>
+<td valign="top" width="65">&#160;</td>
+<td valign="top" width="64">1</td>
+<td valign="top" width="65">1</td>
+<td valign="top" width="62">3</td>
+<td valign="top" width="60">&#160;</td>
+</tr>
+<tr>
+<td valign="top" width="68">S<sub>6</sub></td>
+<td valign="top" width="65">&#160;</td>
+<td valign="top" width="65">&#160;</td>
+<td valign="top" width="64">1</td>
+<td valign="top" width="65">1</td>
+<td valign="top" width="62">2</td>
+<td valign="top" width="60">2</td>
+</tr>
+<tr>
+<td valign="top" width="68">S<sub>7</sub></td>
+<td valign="top" width="65">&#160;</td>
+<td valign="top" width="65">&#160;</td>
+<td valign="top" width="64">&#160;</td>
+<td valign="top" width="65">4</td>
+<td valign="top" width="62">1</td>
+<td valign="top" width="60">1</td>
+</tr>
+</tbody>
+</table>
+<p>The set S<sub>6</sub> is interesting. It consumes 2 P<sub>2</sub>s. One of those P<sub>2</sub>s will be the initial symbol for the letter to which it is assigned. The second will be one of the 3 remaining P<sub>2</sub>s that are not initial symbols. So there can only be at most 3 letters in S<sub>6</sub>.</p>
+<h3>The solution</h3>
+<p><font size="4"><strong>Update</strong>: The following is incorrect. Stefan Stenzel (</font><a href="http://twitter.com/5tenzel"><font size="4">@5tenzel</font></a><font size="4">) showed me a solution to this problem, which let me reverse-engineer my mistake. See if you can spot it. Select the hidden text at the bottom of the post to reveal the solution.</font></p>
+<p>And now we have enough information to solve the problem. All we need to do is determine how many of each set we can assign to the 26 letters of our alphabet. We can compute the cost in terms of symbols in each of the tiers P<sub>2</sub> through P<sub>7</sub>. We know exactly how many of those symbols we have. So this is just an optimization problem.</p>
+<p>The optimal way to assign those sets is:</p>
+<p>1S<sub>1</sub>, 7S<sub>3</sub>, 10S<sub>4</sub>, 4S<sub>5</sub>, and 3S<sub>6</sub>.</p>
+<p>This consumes 1P<sub>7</sub>, 7P<sub>6</sub>, 17P<sub>5</sub>, 34P<sub>4</sub>, 35P<sub>3</sub>, and 13P<sub>2</sub>. We have no more P<sub>3</sub>s left. We could trade an S<sub>5</sub> for an S<sub>4</sub> to get two more P<sub>3</sub>s, but then we have no more P<sub>4</sub>s left.</p>
+<p>But this is only 25 sets. 1 + 7 + 10 + 4 + 3 = 25. We don’t have enough sets to assign to all 26 letters. The pigeon-hole principle strikes again.</p>
+<p>So the solution is a non-solution. This is an impossible problem. Proving that it was impossible was difficult in itself. But it has provided us some value. For example, we know that we are likely to find a solution with a 25 letter alphabet. And we are likely to find a solution with an 8 hole tape. We won’t waste any time searching for a solution where we know that none can exist.</p>
+<p>This type of proof – that a solution does not exist – has been extremely important in the history of computer science. I refer you to the Gödel Incompleteness Theorem, Church and Turing on the Entscheidungsproblem, Turing’s Halting Problem, and P vs NP.</p>
+<h3><font color="#ffffff">The mistake</font></h3>
+<p><font color="#ffffff">The mistake was that the P<sub>2</sub>s that are not initial symbols are not consumed by a set. I made this mistake twice. First, I claimed that the P2 in a set must be the initial symbol of the assigned letter. That was wrong: it could be a leftover P<sub>2</sub>. Second, I claimed that there could be no more that 3 sets containing 2 P<sub>2</sub>s. That is incorrect because the leftover P<sub>2</sub>s can appear in any number of sets.</font></p>
+<p><font color="#ffffff">To make matters worse, I did not create a complete table of sets. I gave up on combinations that I assumed would consume too many symbols. Complete the table and allow the leftovers to be reused, and you get plenty of wiggle room to allow a solution. Stefan’s solution had the following sets:</font></p>
+<table cellspacing="0" cellpadding="2" width="400" border="0">
+<tbody>
+<tr>
+<td valign="top" width="57"><font color="#ffffff">P<sub>7</sub></font></td>
+<td valign="top" width="57"><font color="#ffffff">P<sub>6</sub></font></td>
+<td valign="top" width="57"><font color="#ffffff">P<sub>5</sub></font></td>
+<td valign="top" width="57"><font color="#ffffff">P<sub>4</sub></font></td>
+<td valign="top" width="57"><font color="#ffffff">P<sub>3</sub></font></td>
+<td valign="top" width="57"><font color="#ffffff">P<sub>2</sub></font></td>
+<td valign="top" width="57"><font color="#ffffff">Count</font></td>
+</tr>
+<tr>
+<td valign="top" width="57"><font color="#ffffff">1</font></td>
+<td valign="top" width="57"><font color="#ffffff"></font></td>
+<td valign="top" width="57"><font color="#ffffff"></font></td>
+<td valign="top" width="57"><font color="#ffffff"></font></td>
+<td valign="top" width="57"><font color="#ffffff"></font></td>
+<td valign="top" width="57"><font color="#ffffff"></font></td>
+<td valign="top" width="57"><font color="#ffffff">1</font></td>
+</tr>
+<tr>
+<td valign="top" width="57"><font color="#ffffff"></font></td>
+<td valign="top" width="57"><font color="#ffffff">1</font></td>
+<td valign="top" width="57"><font color="#ffffff"></font></td>
+<td valign="top" width="57"><font color="#ffffff">2</font></td>
+<td valign="top" width="57"><font color="#ffffff"></font></td>
+<td valign="top" width="57"><font color="#ffffff"></font></td>
+<td valign="top" width="57"><font color="#ffffff">2</font></td>
+</tr>
+<tr>
+<td valign="top" width="57"><font color="#ffffff"></font></td>
+<td valign="top" width="57"><font color="#ffffff">1</font></td>
+<td valign="top" width="57"><font color="#ffffff"></font></td>
+<td valign="top" width="57"><font color="#ffffff">1</font></td>
+<td valign="top" width="57"><font color="#ffffff">2</font></td>
+<td valign="top" width="57"><font color="#ffffff"></font></td>
+<td valign="top" width="57"><font color="#ffffff">3</font></td>
+</tr>
+<tr>
+<td valign="top" width="57"><font color="#ffffff"></font></td>
+<td valign="top" width="57"><font color="#ffffff">1</font></td>
+<td valign="top" width="57"><font color="#ffffff"></font></td>
+<td valign="top" width="57"><font color="#ffffff">1</font></td>
+<td valign="top" width="57"><font color="#ffffff">1</font></td>
+<td valign="top" width="57"><font color="#ffffff">1</font></td>
+<td valign="top" width="57"><font color="#ffffff">1</font></td>
+</tr>
+<tr>
+<td valign="top" width="57"><font color="#ffffff"></font></td>
+<td valign="top" width="57"><font color="#ffffff">1</font></td>
+<td valign="top" width="57"><font color="#ffffff"></font></td>
+<td valign="top" width="57"><font color="#ffffff"></font></td>
+<td valign="top" width="57"><font color="#ffffff">2</font></td>
+<td valign="top" width="57"><font color="#ffffff">2</font></td>
+<td valign="top" width="57"><font color="#ffffff">1</font></td>
+</tr>
+<tr>
+<td valign="top" width="57"><font color="#ffffff"></font></td>
+<td valign="top" width="57"><font color="#ffffff"></font></td>
+<td valign="top" width="57"><font color="#ffffff">2</font></td>
+<td valign="top" width="57"><font color="#ffffff">1</font></td>
+<td valign="top" width="57"><font color="#ffffff"></font></td>
+<td valign="top" width="57"><font color="#ffffff">1</font></td>
+<td valign="top" width="57"><font color="#ffffff">3</font></td>
+</tr>
+<tr>
+<td valign="top" width="57"><font color="#ffffff"></font></td>
+<td valign="top" width="57"><font color="#ffffff"></font></td>
+<td valign="top" width="57"><font color="#ffffff">2</font></td>
+<td valign="top" width="57"><font color="#ffffff"></font></td>
+<td valign="top" width="57"><font color="#ffffff">1</font></td>
+<td valign="top" width="57"><font color="#ffffff">1</font></td>
+<td valign="top" width="57"><font color="#ffffff">2</font></td>
+</tr>
+<tr>
+<td valign="top" width="57"><font color="#ffffff"></font></td>
+<td valign="top" width="57"><font color="#ffffff"></font></td>
+<td valign="top" width="57"><font color="#ffffff">1</font></td>
+<td valign="top" width="57"><font color="#ffffff">2</font></td>
+<td valign="top" width="57"><font color="#ffffff">1</font></td>
+<td valign="top" width="57"><font color="#ffffff"></font></td>
+<td valign="top" width="57"><font color="#ffffff">8</font></td>
+</tr>
+<tr>
+<td valign="top" width="57"><font color="#ffffff"></font></td>
+<td valign="top" width="57"><font color="#ffffff"></font></td>
+<td valign="top" width="57"><font color="#ffffff">1</font></td>
+<td valign="top" width="57"><font color="#ffffff">1</font></td>
+<td valign="top" width="57"><font color="#ffffff">2</font></td>
+<td valign="top" width="57"><font color="#ffffff">2</font></td>
+<td valign="top" width="57"><font color="#ffffff">2</font></td>
+</tr>
+<tr>
+<td valign="top" width="57"><font color="#ffffff"></font></td>
+<td valign="top" width="57"><font color="#ffffff"></font></td>
+<td valign="top" width="57"><font color="#ffffff">1</font></td>
+<td valign="top" width="57"><font color="#ffffff"></font></td>
+<td valign="top" width="57"><font color="#ffffff">4</font></td>
+<td valign="top" width="57"><font color="#ffffff">3</font></td>
+<td valign="top" width="57"><font color="#ffffff">1</font></td>
+</tr>
+<tr>
+<td valign="top" width="57"><font color="#ffffff"></font></td>
+<td valign="top" width="57"><font color="#ffffff"></font></td>
+<td valign="top" width="57"><font color="#ffffff"></font></td>
+<td valign="top" width="57"><font color="#ffffff">4</font></td>
+<td valign="top" width="57"><font color="#ffffff"></font></td>
+<td valign="top" width="57"><font color="#ffffff">3</font></td>
+<td valign="top" width="57"><font color="#ffffff">1</font></td>
+</tr>
+<tr>
+<td valign="top" width="57"><font color="#ffffff"></font></td>
+<td valign="top" width="57"><font color="#ffffff"></font></td>
+<td valign="top" width="57"><font color="#ffffff"></font></td>
+<td valign="top" width="57"><font color="#ffffff">2</font></td>
+<td valign="top" width="57"><font color="#ffffff">3</font></td>
+<td valign="top" width="57"><font color="#ffffff">3</font></td>
+<td valign="top" width="57"><font color="#ffffff">1</font></td>
+</tr>
+</tbody>
+</table>
+<p><font color="#ffffff">Which very neatly consumes 1P<sub>7</sub>, 7P<sub>6</sub>, 21P<sub>5</sub>, 35P<sub>4</sub>, and 30P<sub>3</sub>. The P<sub>2</sub>s are not all consumed, because many of them are the leftovers, reused from one set to the next.</font></p>
+<p><font color="#ffffff">Sefan’s solution is: ABCIDKMEEOQBSYTLFUWTYBGCTPDQNVWJGZ-YXGLZRJUVNDRPNWJXCFVKRZOMEISHH--SVTIUPDKRHSGNLYIWOMLRJKFECOZXJRZBJEYOXTICKWQFHSUNTQPDVLYGMUBA</font></p>
+</div>
+    <br />
+        	<div class="links-align">
+            <div class="bg-links">
+                <div class="links-left">
+                    <div class="links-right">
+                        <div class="links"><ul class="links inline"><li class="blog_usernames_blog first"><a href="../blogs/michael-l-perry.html" title="Read Michael L Perry&#039;s latest blog entries.">Michael L Perry&#039;s blog</a></li>
+<li class="comment_add last"><a href="http://qedcode.com/comment/reply/113#comment-form" title="Share your thoughts and opinions related to this posting.">Add new comment</a></li>
+</ul></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	    <br class="clear" />    
+    </div>                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <div id="footer">
+    	<div class="foot">
+        	                <span><a rel="license" href="http://creativecommons.org/licenses/by/3.0/us/"><img alt="Creative Commons License" src="../../licensebuttons.net/l/by/3.0/us/88x31.png" /></a><br /><span dc="http://purl.org/dc/elements/1.1/" href="http://purl.org/dc/dcmitype/Text" property="title" rel="type">Q.E.D. Code</span> by <a cc="http://creativecommons.org/ns#" href="../index.html" property="attributionName" rel="attributionURL">Michael L Perry</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/us/">Creative Commons Attribution 3.0 United States License</a>.</span>
+                    </div>
+    </div>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var _gaq = _gaq || [];_gaq.push(["_setAccount", "UA-389401-7"]);_gaq.push(["_trackPageview"]);(function() {var ga = document.createElement("script");ga.type = "text/javascript";ga.async = true;ga.src = ("https:" == document.location.protocol ? "https://ssl" : "http://www") + ".google-analytics.com/ga.js";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(ga, s);})();
+//--><!]]>
+</script>
+</body>
+
+<!-- Mirrored from qedcode.com/content/solution-punch-22-challenge by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 13 Jan 2017 12:21:33 GMT -->
+</html>

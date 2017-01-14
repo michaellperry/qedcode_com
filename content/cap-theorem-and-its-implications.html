@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" dir="ltr">
+
+<!-- Mirrored from qedcode.com/content/cap-theorem-and-its-implications by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 13 Jan 2017 12:22:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>The CAP Theorem and its Implications | Q.E.D. Code</title>
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="http://qedcode.com/misc/favicon.ico" type="image/x-icon" />
+  <link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/modules/book/book.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/modules/node/node.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/modules/system/defaults.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/modules/system/system.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/modules/system/system-menus.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/modules/user/user.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/sites/all/modules/mollom/mollom.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/sites/all/modules/views/css/views.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/modules/comment/comment.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/themes/theme073/style.css?2" />
+  <script type="text/javascript" src="http://qedcode.com/misc/jquery.js?2"></script>
+<script type="text/javascript" src="http://qedcode.com/misc/drupal.js?2"></script>
+<script type="text/javascript" src="http://qedcode.com/sites/all/modules/google_analytics/googleanalytics.js?2"></script>
+<script type="text/javascript" src="http://qedcode.com/sites/all/modules/mollom/mollom.js?2"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "googleanalytics": { "trackOutbound": 1, "trackMailto": 1, "trackDownload": 1, "trackDownloadExtensions": "7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip" } });
+//--><!]]>
+</script>
+  
+</head>
+  
+<body>
+    <table id="main">
+        <tr>
+            <td width="100%" class="header">
+            	<div class="top-left">
+                	<div class="top-right">
+                    	<table width="100%">
+                            <tr>
+                                <td width="100%" style="height:195px;">
+                                    <table width="100%">
+                                        <tr>
+                                            <td width="">
+                                                                                                    <a href="../index.html" title="Home"><img src="http://qedcode.com/themes/theme073/images/logo.png" alt="Home" border="0" class="logo" /></a><br />
+                                                                                                                                                
+                                                                                            </td>
+                                            <td width="270">
+                                                <div class="search-box">
+                                                                                                    </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%" style="height:54px;">
+                                                                            <div class="pr-menu">
+                                            <ul class="links primary-links"><li class="menu-227 first"><a href="../node.html" title="">Latest Article</a></li>
+<li class="menu-339"><a href="../podcast.html" title="Q.E.D. Code Podcast">Podcast</a></li>
+<li class="menu-219"><a href="../theory.html" title="">Theory</a></li>
+<li class="menu-220"><a href="../practice.html" title="">Practice</a></li>
+<li class="menu-221 last"><a href="../speaking.html" title="">Speaking</a></li>
+</ul>                                            <br class="clear" />
+                                        </div>
+                                                                    </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td width="100%">
+                <table width="100%" >
+                    <tr>
+                        <td width="189">
+                            <div class="left2">
+                                                                    <table width="100%">
+                                      <tr>
+                                        <td width="100%">
+                                            <div class="block block-block" id="block-block-2">
+	<div class="block-bot">
+    	<div class="block-top">
+        	<div class="block-indent">
+                <div class="title">
+                    <h3>About me</h3>
+                </div>
+                <div class="content"><div style="margin: 15px;">
+<p style="margin-bottom: 7px;">Michael L Perry</p>
+<p><a href="http://improvingenterprises.com/"><img src="../images/IE-Logo.png" width="145" alt="Improving Enterprises" /></a></p>
+<p style="margin-bottom: 15px;">Principal Consultant</p>
+<p><a href="http://twitter.com/michaellperry">@michaellperry</a></p>
+</div>
+</div>
+            </div>
+        </div>
+    </div>
+</div><div class="block block-user" id="block-user-0">
+	<div class="block-bot">
+    	<div class="block-top">
+        	<div class="block-indent">
+                <div class="title">
+                    <h3>User login</h3>
+                </div>
+                <div class="content"><form action="http://qedcode.com/content/cap-theorem-and-its-implications?destination=node%2F28"  accept-charset="UTF-8" method="post" id="user-login-form">
+<div><div class="form-item" id="edit-name-wrapper">
+ <label for="edit-name">Username: <span class="form-required" title="This field is required.">*</span></label>
+ <input type="text" maxlength="60" name="name" id="edit-name" size="15" value="" class="form-text required" />
+</div>
+<div class="form-item" id="edit-pass-wrapper">
+ <label for="edit-pass">Password: <span class="form-required" title="This field is required.">*</span></label>
+ <input type="password" name="pass" id="edit-pass"  maxlength="60"  size="15"  class="form-text required" />
+</div>
+<input type="submit" name="op" id="edit-submit" value="Log in"  class="form-submit" />
+<div class="item-list"><ul><li class="first last"><a href="../user/password.html" title="Request new password via e-mail.">Request new password</a></li>
+</ul></div><input type="hidden" name="form_build_id" id="form-7079ae0601f345fe209b1c1990f91569" value="form-7079ae0601f345fe209b1c1990f91569"  />
+<input type="hidden" name="form_id" id="edit-user-login-block" value="user_login_block"  />
+
+</div></form>
+</div>
+            </div>
+        </div>
+    </div>
+</div>                                        </td>
+                                      </tr>
+                                    </table>
+                                                            </div>
+                        </td>
+                        <td width="0">
+                            <div class="right2">
+                                                            </div>
+                        </td>
+                        <td width="" class="cont-row">
+                            <div class="border-left">
+                                <div class="border-right">
+                                    <div class="border-bot">
+                                        <div class="border-top">
+                                            <div class="corner-bot-left">
+                                                <div class="corner-bot-right">
+                                                    <div class="corner-top-left">
+                                                        <div class="corner-top-right">
+                                                            <div class="cent">
+                                                                                                                                                                                                
+                                                                                                                        
+                                                                <h2>The CAP Theorem and its Implications</h2>
+                                                                                                                                                                                                                                                                 
+                                                                                                                    
+                                                                                                                    
+                                                              <!-- start main content -->
+                                                            <div class="node">
+	    <div class="taxonomy"></div>
+  
+    <div class="content"><p>Please access the materials on line:</p>
+<ul>
+<li><a href="../extras/cap/index.html">slides</a> </li>
+<li><a href="../extras/cap/CAPExamples.zip">code</a> </li>
+</ul>
+<p>The CAP Theorem tells us that we have a choice. With our customer’s help, we choose the architecture that bets fits the system we are building. Some architectures guarantee Consistency and Availability. Others relax Consistency in favor of Partition Tolerance. Still others choose some guarantees for some subsystems and other guarantees for others.</p>
+<p>In this talk, I present the definition and proof of the CAP Theorem. I then describe the different types of systems that benefit from different guarantees. Finally, I present three different architectures and demonstrate in code how they each uphold their own guarantees.</p>
+<p>The <a href="../extras/cap/index.html">slides</a> are presented in Silverlight. This gives the presenter the ability to take notes in the sidebar, to pan and zoom through the diagrams, and to step through animations.</p>
+<ul>
+<li>Click on the presentation to give it focus </li>
+<li>F11 – Full screen </li>
+<li>Page down – next slide </li>
+<li>Page up – previous slide </li>
+<li>Arrow down – next animation </li>
+<li>Arrow up – previous animation </li>
+<li>Drag to pan </li>
+<li>Scroll wheel to zoom </li>
+</ul>
+<p>The <a href="../extras/cap/CAPExamples.zip">code</a> is written in C# 4.0, and can be opened in Visual Studio 2010. Its 9 projects are grouped into 3 examples:</p>
+<ul>
+<li>Central Database
+<ul>
+<li>Service – A web service that communicates with the database. </li>
+<li>Client – A WPF client application that uses the web service. </li>
+</ul>
+</li>
+<li>CQRS
+<ul>
+<li>Messages – Data types used by both Service and Background to serialize messages in MSMQ. </li>
+<li>Service – A web service that reads from the database and publishes messages to the queue. </li>
+<li>Background – A console application that processes messages from the queue against the database. </li>
+<li>Client – A WPF client application that uses the web service. </li>
+</ul>
+</li>
+<li>Event Sourcing
+<ul>
+<li>Service – A web service that calculates current balance and writes transfers to the database. </li>
+<li>Background – A console application that writes balance snapshots. </li>
+<li>Client – A WPF client application that uses the web service. </li>
+</ul>
+</li>
+</ul>
+<p>Activate the Task List view to follow the TODO comments through the code. Always look at the entity model before walking through source code.</p>
+<p>To run the examples, you must first run the databases.sql script to create three databases:</p>
+<ul>
+<li>CAP_CentralDatabase </li>
+<li>CAP_CQRS </li>
+<li>CAP_EventSourcing </li>
+</ul>
+<p>Both the slides and the source code are licensed for your use under the <a href="http://creativecommons.org/licenses/by/3.0/us/">Creative Commons Attribution 3.0 United States License</a>. You are free to use either or both in any way you choose, including presenting the material yourself. Please retain the attribution in the title page.</p>
+</div>
+    <br />
+        	<div class="links-align">
+            <div class="bg-links">
+                <div class="links-left">
+                    <div class="links-right">
+                        <div class="links"><ul class="links inline"><li class="blog_usernames_blog first"><a href="../blogs/michael-l-perry.html" title="Read Michael L Perry&#039;s latest blog entries.">Michael L Perry&#039;s blog</a></li>
+<li class="comment_add last"><a href="http://qedcode.com/comment/reply/28#comment-form" title="Share your thoughts and opinions related to this posting.">Add new comment</a></li>
+</ul></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	    <br class="clear" />    
+    </div><div id="comments">
+  <a id="comment-40"></a>
+<div class="comment comment-published">
+    <h3 class="title"><a href="cap-theorem-and-its-implications.html#comment-40" class="active">CAP Theory</a></h3>
+  <div class="submitted">Submitted by Anonymous on Thu, 07/08/2010 - 11:06.</div>
+  <div class="content">
+    <p>Dear Mr. Perry:</p>
+<p>   Just a quick note to thank you for the excellent presentation on CAP Theory last evening at NDDNUG. I had never even heard of CAP Theory before you taught me about it last night.</p>
+<p>   You are an affable and compelling speaker and I was mesmerized by your ideas, after I finally got on the same conceptual "page" as yours.</p>
+<p>   This theory has caused me to completely re-think my conception of high-transaction, distributed, relational database-driven, enterprise architecture. You proved, at least to me, that we can achieve our goals using SQL Server or other traditional databases.</p>
+<p>   So, let me see if I got this right: </p>
+<p>   1. The more we optimize our system for Partition Tolerance, the more impact we will have on short-term Consistency (but, we will eventually get complete Consistency, assuming all of the nodes are performing their functions correctly at the appropriate times).</p>
+<p>   2. But, we will optimally maximize Availability, which means excellent Presentation-Tier performance --which is awesome. Right?</p>
+<p>   This means that, avoiding database deadlocks by design, employing the durability of MSMQ and a reliance more on Business-Tier-to-Data-Tier INSERTS (rather than UPDATES), while using the database itself to do the UPDATES are absolutely essential concepts, in CAP Theory.</p>
+<p>   Now, the Maintenance and Deployment issues are different, here. As we evolve from version-to-version of the deployed components, we must ensure backward-compatibility, perhaps even at the Method-level. Over time, this could bloat our codebase and we must have a strategy for when we deprecate a Method or Class and when we simply remove them altogether.</p>
+<p>   The "Account Balance" example was a simple one; easy to understand. Now, I can't truthfully say that I have totally mastered this concept, yet. I am, nonetheless, fascinated by this theory.</p>
+<p>   Is there any way that I might gain access to the source code and presentation materials that you used last evening?</p>
+<p>   I am a bit of a dullard, so I need to really scrutinize the code within the Visual Studio environment in order to really understand it.</p>
+<p>   Also, I am recovering from an recent injury (I was in some physical pain last night), so I was a bit distracted by the pain.</p>
+<p>   If the code and presentation materials are available, I would be grateful if I might be able to download and study them.</p>
+<p>   Anyway, thank you for enlightening us. I look forward to seeing you again at NDDNUG. Please make another presentation, soon. I hope to be there when you do.</p>
+<p>Warm regards, always,</p>
+<p>david<br />
+<a href="http://www.davidtate.net/" title="http://www.davidtate.net">http://www.davidtate.net</a></p>
+      </div>
+  <!-- BEGIN: links -->
+  <div class="links"><ul class="links"><li class="comment_reply first last"><a href="http://qedcode.com/comment/reply/28/40">reply</a></li>
+</ul></div>
+  <!-- END: links -->
+</div>
+<div class="indented"><a id="comment-41"></a>
+<div class="comment comment-published">
+    <h3 class="title"><a href="cap-theorem-and-its-implications.html#comment-41" class="active">You got it</a></h3>
+  <div class="submitted">Submitted by Michael L Perry on Fri, 07/09/2010 - 13:06.</div>
+  <div class="content">
+    <p>It sounds like you understand the material just fine. Your summary of the presentation is 100% correct.</p>
+<p>I hope to have the opportunity to speak at NDDNUG again. There is much more to say on the topic of distributed systems architecture.</p>
+<p>The links to the slides and source code were in the article. I've moved them to the top to make them easier to find.</p>
+      </div>
+  <!-- BEGIN: links -->
+  <div class="links"><ul class="links"><li class="comment_reply first last"><a href="http://qedcode.com/comment/reply/28/41">reply</a></li>
+</ul></div>
+  <!-- END: links -->
+</div>
+</div></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <div id="footer">
+    	<div class="foot">
+        	                <span><a rel="license" href="http://creativecommons.org/licenses/by/3.0/us/"><img alt="Creative Commons License" src="../../licensebuttons.net/l/by/3.0/us/88x31.png" /></a><br /><span dc="http://purl.org/dc/elements/1.1/" href="http://purl.org/dc/dcmitype/Text" property="title" rel="type">Q.E.D. Code</span> by <a cc="http://creativecommons.org/ns#" href="../index.html" property="attributionName" rel="attributionURL">Michael L Perry</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/us/">Creative Commons Attribution 3.0 United States License</a>.</span>
+                    </div>
+    </div>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var _gaq = _gaq || [];_gaq.push(["_setAccount", "UA-389401-7"]);_gaq.push(["_trackPageview"]);(function() {var ga = document.createElement("script");ga.type = "text/javascript";ga.async = true;ga.src = ("https:" == document.location.protocol ? "https://ssl" : "http://www") + ".google-analytics.com/ga.js";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(ga, s);})();
+//--><!]]>
+</script>
+</body>
+
+<!-- Mirrored from qedcode.com/content/cap-theorem-and-its-implications by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 13 Jan 2017 12:22:20 GMT -->
+</html>

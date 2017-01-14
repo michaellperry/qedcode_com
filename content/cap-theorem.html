@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" dir="ltr">
+
+<!-- Mirrored from qedcode.com/content/cap-theorem by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 13 Jan 2017 12:22:18 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>The CAP Theorem | Q.E.D. Code</title>
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="prev" href="distributed-systems.html" />
+<link rel="up" href="distributed-systems.html" />
+<link rel="next" href="visual-proof-cap-theorem.html" />
+<link rel="shortcut icon" href="http://qedcode.com/misc/favicon.ico" type="image/x-icon" />
+  <link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/modules/book/book.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/modules/node/node.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/modules/system/defaults.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/modules/system/system.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/modules/system/system-menus.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/modules/user/user.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/sites/all/modules/mollom/mollom.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/sites/all/modules/views/css/views.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/modules/comment/comment.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/themes/theme073/style.css?2" />
+  <script type="text/javascript" src="http://qedcode.com/misc/jquery.js?2"></script>
+<script type="text/javascript" src="http://qedcode.com/misc/drupal.js?2"></script>
+<script type="text/javascript" src="http://qedcode.com/sites/all/modules/google_analytics/googleanalytics.js?2"></script>
+<script type="text/javascript" src="http://qedcode.com/sites/all/modules/mollom/mollom.js?2"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "googleanalytics": { "trackOutbound": 1, "trackMailto": 1, "trackDownload": 1, "trackDownloadExtensions": "7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip" } });
+//--><!]]>
+</script>
+  
+</head>
+  
+<body>
+    <table id="main">
+        <tr>
+            <td width="100%" class="header">
+            	<div class="top-left">
+                	<div class="top-right">
+                    	<table width="100%">
+                            <tr>
+                                <td width="100%" style="height:195px;">
+                                    <table width="100%">
+                                        <tr>
+                                            <td width="">
+                                                                                                    <a href="../index.html" title="Home"><img src="http://qedcode.com/themes/theme073/images/logo.png" alt="Home" border="0" class="logo" /></a><br />
+                                                                                                                                                
+                                                                                            </td>
+                                            <td width="270">
+                                                <div class="search-box">
+                                                                                                    </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%" style="height:54px;">
+                                                                            <div class="pr-menu">
+                                            <ul class="links primary-links"><li class="menu-227 first"><a href="../node.html" title="">Latest Article</a></li>
+<li class="menu-339"><a href="../podcast.html" title="Q.E.D. Code Podcast">Podcast</a></li>
+<li class="menu-219"><a href="../theory.html" title="">Theory</a></li>
+<li class="menu-220"><a href="../practice.html" title="">Practice</a></li>
+<li class="menu-221 last"><a href="../speaking.html" title="">Speaking</a></li>
+</ul>                                            <br class="clear" />
+                                        </div>
+                                                                    </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td width="100%">
+                <table width="100%" >
+                    <tr>
+                        <td width="189">
+                            <div class="left2">
+                                                                    <table width="100%">
+                                      <tr>
+                                        <td width="100%">
+                                            <div class="block block-block" id="block-block-2">
+	<div class="block-bot">
+    	<div class="block-top">
+        	<div class="block-indent">
+                <div class="title">
+                    <h3>About me</h3>
+                </div>
+                <div class="content"><div style="margin: 15px;">
+<p style="margin-bottom: 7px;">Michael L Perry</p>
+<p><a href="http://improvingenterprises.com/"><img src="../images/IE-Logo.png" width="145" alt="Improving Enterprises" /></a></p>
+<p style="margin-bottom: 15px;">Principal Consultant</p>
+<p><a href="http://twitter.com/michaellperry">@michaellperry</a></p>
+</div>
+</div>
+            </div>
+        </div>
+    </div>
+</div><div class="block block-user" id="block-user-0">
+	<div class="block-bot">
+    	<div class="block-top">
+        	<div class="block-indent">
+                <div class="title">
+                    <h3>User login</h3>
+                </div>
+                <div class="content"><form action="http://qedcode.com/content/cap-theorem?destination=node%2F25"  accept-charset="UTF-8" method="post" id="user-login-form">
+<div><div class="form-item" id="edit-name-wrapper">
+ <label for="edit-name">Username: <span class="form-required" title="This field is required.">*</span></label>
+ <input type="text" maxlength="60" name="name" id="edit-name" size="15" value="" class="form-text required" />
+</div>
+<div class="form-item" id="edit-pass-wrapper">
+ <label for="edit-pass">Password: <span class="form-required" title="This field is required.">*</span></label>
+ <input type="password" name="pass" id="edit-pass"  maxlength="60"  size="15"  class="form-text required" />
+</div>
+<input type="submit" name="op" id="edit-submit" value="Log in"  class="form-submit" />
+<div class="item-list"><ul><li class="first last"><a href="../user/password.html" title="Request new password via e-mail.">Request new password</a></li>
+</ul></div><input type="hidden" name="form_build_id" id="form-cf70d0e7e569bd0b83d1283a6deff8c2" value="form-cf70d0e7e569bd0b83d1283a6deff8c2"  />
+<input type="hidden" name="form_id" id="edit-user-login-block" value="user_login_block"  />
+
+</div></form>
+</div>
+            </div>
+        </div>
+    </div>
+</div>                                        </td>
+                                      </tr>
+                                    </table>
+                                                            </div>
+                        </td>
+                        <td width="0">
+                            <div class="right2">
+                                                            </div>
+                        </td>
+                        <td width="" class="cont-row">
+                            <div class="border-left">
+                                <div class="border-right">
+                                    <div class="border-bot">
+                                        <div class="border-top">
+                                            <div class="corner-bot-left">
+                                                <div class="corner-bot-right">
+                                                    <div class="corner-top-left">
+                                                        <div class="corner-top-right">
+                                                            <div class="cent">
+                                                                                                                                                                                                
+                                                                                                                        
+                                                                <h2>The CAP Theorem</h2>
+                                                                                                                                                                                                                                                                 
+                                                                                                                    
+                                                                                                                    
+                                                              <!-- start main content -->
+                                                            <div class="node">
+	    <div class="taxonomy"></div>
+  
+    <div class="content"><p>Eric Brewer is an expert in distributed systems. In the Principles of Distributed Computing 2000 keynote address, he gave us the CAP Theorem. It states that a distributed system cannot simultaneously guarantee these three attributes:</p>
+<ul>
+<li>Consistency </li>
+<li>Availability </li>
+<li>Partition Tolerance </li>
+</ul>
+<p><strong><a href="http://qedcode.com/sites/default/files/TheCAPTheorem_C300/image.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; margin-left: 0px; border-left-width: 0px; margin-right: 0px" title="image" border="0" alt="image" align="right" src="http://qedcode.com/sites/default/files/TheCAPTheorem_C300/image_thumb.png" width="225" height="208" /></a></strong>It can guarantee at most two. Which two you choose should depend upon the system’s architectural requirements.</p>
+<p><strong>Consistency</strong>     <br />Consistency in a distributed system is not strictly the same as ACID consistency. A distributed system is consistent if a read at any node returns data that is no older than that written by a previous write. The read and the write may occur at the same node or at different nodes. The nodes may use any algorithm they wish to keep each other up-to-date. But if I write version 2, a consistent system will never again read version 1.</p>
+<p>There are many ways to guarantee consistency. One would be to block writes until all nodes have been notified. Another would be to block reads until all nodes are consulted. Yet another is to delegate one node the master of that particular piece of data, and route all messages to it. In practice, consistent distributed systems use a combination of these algorithms.</p>
+<p><strong>Availability</strong>     <br /><a href="http://qedcode.com/sites/default/files/TheCAPTheorem_C300/image_3.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; margin-left: 0px; border-left-width: 0px; margin-right: 0px" title="image" border="0" alt="image" align="right" src="http://qedcode.com/sites/default/files/TheCAPTheorem_C300/image_thumb_3.png" width="236" height="146" /></a> A distributed system is available if any non-failing node responds to a request in a reasonable amount of time. It doesn’t mean that nodes can’t fail. It just means that, whatever other guarantees the system offers, it will respond when you address one of the remaining nodes.</p>
+<p>You can see the tension between consistency and availability. To guarantee both, we need redundancy. What if the data that we try to read was only stored on the node that was lost after the write? That data would not be available, and we could not guarantee consistency.</p>
+<p><strong>Partition Tolerance</strong>     <br />A distributed system is partition tolerant if it can tolerate the loss of any number of messages. If enough messages are lost between islands of nodes, the network has been partitioned.</p>
+<p><a href="http://qedcode.com/sites/default/files/TheCAPTheorem_C300/image_4.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; margin-left: 0px; border-left-width: 0px; margin-right: 0px" title="image" border="0" alt="image" align="right" src="http://qedcode.com/sites/default/files/TheCAPTheorem_C300/image_thumb_4.png" width="225" height="141" /></a> Network partitioning happens most often in wide area networks. A client disconnects from the internet. Or the connection between two data centers is severed. But network partitioning can happen in a local area network. No network, no matter how expensive, can guarantee that all packets are delivered. It is up to the designer of the distributed system to decide whether the system will tolerate message loss.</p>
+<p>Most distributed systems respond to momentary message loss by resending messages. But since the network cannot guarantee message delivery, even those retries might be lost. It’s how the system responds to maintained message loss that determines whether it can guarantee partition tolerance.</p>
+<p><strong>Proof</strong>     <br />The <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.67.6951&amp;rep=rep1&amp;type=pdf">proof of the CAP Theorem</a> is pretty simple. Informally, we can ask: how can a system guarantee both consistency and partition tolerance? If all messages between two given nodes are lost, how can a write at one affect a read at the other? No matter what algorithm you come up with, the only way to guarantee both consistency and partition tolerance is to give up availability. When messages between two nodes are lost, you must fail the read as if the second node was down. There is no way to respond with consistent data.</p>
+<p>Or you can ask how a system can guarantee both consistency and availability. Remember our three example algorithms. If we block writes until every available node is notified, and those notifications are lost, then we must fail the write. If we block reads until every available node is consulted, and those messages are lost, we must fail the read. And if we delegate to the master, and that message is lost, then we fail as well.</p>
+<p>And finally, we can guarantee both availability and partition tolerance, but we have to relax our consistency guarantee. Nodes might be down and messages might be lost, but if we assume that those problems will eventually be solved, then we can say that we will eventually be consistent. It is possible to read stale data from such a system, but given enough time all nodes will be up-to-date.</p>
+<p>When designing a distributed system, consider the guarantees that the problem demands. But also consider the guarantees that you will be unable to make, and decide how best to respond in those situations.</p>
+  <div id="book-navigation-3" class="book-navigation">
+    
+        <div class="page-links clear-block">
+              <a href="distributed-systems.html" class="page-previous" title="Go to previous page">‹ Distributed Systems</a>
+                    <a href="distributed-systems.html" class="page-up" title="Go to parent page">up</a>
+                    <a href="visual-proof-cap-theorem.html" class="page-next" title="Go to next page">A visual proof of the CAP Theorem ›</a>
+          </div>
+    
+  </div>
+</div>
+    <br />
+        	<div class="links-align">
+            <div class="bg-links">
+                <div class="links-left">
+                    <div class="links-right">
+                        <div class="links"><ul class="links inline"><li class="blog_usernames_blog first"><a href="../blogs/michael-l-perry.html" title="Read Michael L Perry&#039;s latest blog entries.">Michael L Perry&#039;s blog</a></li>
+<li class="comment_add last"><a href="http://qedcode.com/comment/reply/25#comment-form" title="Share your thoughts and opinions related to this posting.">Add new comment</a></li>
+</ul></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	    <br class="clear" />    
+    </div>                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <div id="footer">
+    	<div class="foot">
+        	                <span><a rel="license" href="http://creativecommons.org/licenses/by/3.0/us/"><img alt="Creative Commons License" src="../../licensebuttons.net/l/by/3.0/us/88x31.png" /></a><br /><span dc="http://purl.org/dc/elements/1.1/" href="http://purl.org/dc/dcmitype/Text" property="title" rel="type">Q.E.D. Code</span> by <a cc="http://creativecommons.org/ns#" href="../index.html" property="attributionName" rel="attributionURL">Michael L Perry</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/us/">Creative Commons Attribution 3.0 United States License</a>.</span>
+                    </div>
+    </div>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var _gaq = _gaq || [];_gaq.push(["_setAccount", "UA-389401-7"]);_gaq.push(["_trackPageview"]);(function() {var ga = document.createElement("script");ga.type = "text/javascript";ga.async = true;ga.src = ("https:" == document.location.protocol ? "https://ssl" : "http://www") + ".google-analytics.com/ga.js";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(ga, s);})();
+//--><!]]>
+</script>
+</body>
+
+<!-- Mirrored from qedcode.com/content/cap-theorem by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 13 Jan 2017 12:22:18 GMT -->
+</html>

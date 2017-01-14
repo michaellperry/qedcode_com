@@ -1,0 +1,410 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" dir="ltr">
+
+<!-- Mirrored from qedcode.com/content/function-closure-ioc by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 13 Jan 2017 12:22:18 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Function Closure as IoC | Q.E.D. Code</title>
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="prev" href="../ioc/case.html" />
+<link rel="up" href="../ioc.html" />
+<link rel="shortcut icon" href="http://qedcode.com/misc/favicon.ico" type="image/x-icon" />
+  <link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/modules/book/book.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/modules/node/node.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/modules/system/defaults.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/modules/system/system.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/modules/system/system-menus.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/modules/user/user.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/sites/all/modules/mollom/mollom.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/sites/all/modules/views/css/views.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/modules/comment/comment.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/themes/theme073/style.css?2" />
+  <script type="text/javascript" src="http://qedcode.com/misc/jquery.js?2"></script>
+<script type="text/javascript" src="http://qedcode.com/misc/drupal.js?2"></script>
+<script type="text/javascript" src="http://qedcode.com/sites/all/modules/google_analytics/googleanalytics.js?2"></script>
+<script type="text/javascript" src="http://qedcode.com/sites/all/modules/mollom/mollom.js?2"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "googleanalytics": { "trackOutbound": 1, "trackMailto": 1, "trackDownload": 1, "trackDownloadExtensions": "7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip" } });
+//--><!]]>
+</script>
+  
+</head>
+  
+<body>
+    <table id="main">
+        <tr>
+            <td width="100%" class="header">
+            	<div class="top-left">
+                	<div class="top-right">
+                    	<table width="100%">
+                            <tr>
+                                <td width="100%" style="height:195px;">
+                                    <table width="100%">
+                                        <tr>
+                                            <td width="">
+                                                                                                    <a href="../index.html" title="Home"><img src="http://qedcode.com/themes/theme073/images/logo.png" alt="Home" border="0" class="logo" /></a><br />
+                                                                                                                                                
+                                                                                            </td>
+                                            <td width="270">
+                                                <div class="search-box">
+                                                                                                    </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%" style="height:54px;">
+                                                                            <div class="pr-menu">
+                                            <ul class="links primary-links"><li class="menu-227 first"><a href="../node.html" title="">Latest Article</a></li>
+<li class="menu-339"><a href="../podcast.html" title="Q.E.D. Code Podcast">Podcast</a></li>
+<li class="menu-219"><a href="../theory.html" title="">Theory</a></li>
+<li class="menu-220"><a href="../practice.html" title="">Practice</a></li>
+<li class="menu-221 last"><a href="../speaking.html" title="">Speaking</a></li>
+</ul>                                            <br class="clear" />
+                                        </div>
+                                                                    </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td width="100%">
+                <table width="100%" >
+                    <tr>
+                        <td width="189">
+                            <div class="left2">
+                                                                    <table width="100%">
+                                      <tr>
+                                        <td width="100%">
+                                            <div class="block block-block" id="block-block-2">
+	<div class="block-bot">
+    	<div class="block-top">
+        	<div class="block-indent">
+                <div class="title">
+                    <h3>About me</h3>
+                </div>
+                <div class="content"><div style="margin: 15px;">
+<p style="margin-bottom: 7px;">Michael L Perry</p>
+<p><a href="http://improvingenterprises.com/"><img src="../images/IE-Logo.png" width="145" alt="Improving Enterprises" /></a></p>
+<p style="margin-bottom: 15px;">Principal Consultant</p>
+<p><a href="http://twitter.com/michaellperry">@michaellperry</a></p>
+</div>
+</div>
+            </div>
+        </div>
+    </div>
+</div><div class="block block-user" id="block-user-0">
+	<div class="block-bot">
+    	<div class="block-top">
+        	<div class="block-indent">
+                <div class="title">
+                    <h3>User login</h3>
+                </div>
+                <div class="content"><form action="http://qedcode.com/content/function-closure-ioc?destination=node%2F99"  accept-charset="UTF-8" method="post" id="user-login-form">
+<div><div class="form-item" id="edit-name-wrapper">
+ <label for="edit-name">Username: <span class="form-required" title="This field is required.">*</span></label>
+ <input type="text" maxlength="60" name="name" id="edit-name" size="15" value="" class="form-text required" />
+</div>
+<div class="form-item" id="edit-pass-wrapper">
+ <label for="edit-pass">Password: <span class="form-required" title="This field is required.">*</span></label>
+ <input type="password" name="pass" id="edit-pass"  maxlength="60"  size="15"  class="form-text required" />
+</div>
+<input type="submit" name="op" id="edit-submit" value="Log in"  class="form-submit" />
+<div class="item-list"><ul><li class="first last"><a href="../user/password.html" title="Request new password via e-mail.">Request new password</a></li>
+</ul></div><input type="hidden" name="form_build_id" id="form-a871dce771d7628e2a9ea3901e1897d2" value="form-a871dce771d7628e2a9ea3901e1897d2"  />
+<input type="hidden" name="form_id" id="edit-user-login-block" value="user_login_block"  />
+
+</div></form>
+</div>
+            </div>
+        </div>
+    </div>
+</div>                                        </td>
+                                      </tr>
+                                    </table>
+                                                            </div>
+                        </td>
+                        <td width="0">
+                            <div class="right2">
+                                                            </div>
+                        </td>
+                        <td width="" class="cont-row">
+                            <div class="border-left">
+                                <div class="border-right">
+                                    <div class="border-bot">
+                                        <div class="border-top">
+                                            <div class="corner-bot-left">
+                                                <div class="corner-bot-right">
+                                                    <div class="corner-top-left">
+                                                        <div class="corner-top-right">
+                                                            <div class="cent">
+                                                                                                                                                                                                
+                                                                                                                        
+                                                                <h2>Function Closure as IoC</h2>
+                                                                                                                                                                                                                                                                 
+                                                                                                                    
+                                                                                                                    
+                                                              <!-- start main content -->
+                                                            <div class="node">
+	    <div class="taxonomy"></div>
+  
+    <div class="content"><p><a href="http://qedcode.com/sites/default/files/function_ioc.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; float: right; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" align="right" src="http://qedcode.com/sites/default/files/function_ioc_thumb.png" width="490" height="484" /></a>With my style of MVVM, you end up with several layers of view model, each one taking a reference to a different part of the model. The view model hierarchy mirrors the model hierarchy. When a view model lower in the hierarchy needs a new reference, I have to plumb that parameter through all of the constructors.</p>
+<p>At least, I used to. Now I use a simple functional IoC pattern.</p>
+<h3>Hierarchy of view models</h3>
+<p><a href="../mycon.html">MyCon</a> is a template for conference web sites and mobile applications. In the Windows 8 app, the sessions for the conference appear in a GridView, grouped by track. The GridView is data bound to the TracksViewModel. This view model exposes a collection property called Tracks. It is a collection of TrackViewModel. This view model in turn exposes a collection of SessionHeaderViewModel through a property called Items.</p>
+<pre class="code"><span style="background: white; color: blue">public class </span><span style="background: white; color: #2b91af">TracksViewModel
+</span><span style="background: white; color: black">{
+    </span><span style="background: white; color: blue">public </span><span style="background: white; color: #2b91af">IEnumerable</span><span style="background: white; color: black">&lt;</span><span style="background: white; color: #2b91af">TrackViewModel</span><span style="background: white; color: black">&gt; Tracks
+    {
+        </span><span style="background: white; color: blue">get
+        </span><span style="background: white; color: black">{
+            </span><span style="background: white; color: blue">return
+                from </span><span style="background: white; color: black">track </span><span style="background: white; color: blue">in </span><span style="background: white; color: black">_synchronizationService.Conference.Tracks
+                </span><span style="background: white; color: blue">orderby </span><span style="background: white; color: black">track.Name
+                </span><span style="background: white; color: blue">select new </span><span style="background: white; color: #2b91af">TrackViewModel</span><span style="background: white; color: black">(track);
+        }
+    }
+}
+</span></pre><p>
+<pre class="code"><span style="background: white; color: blue">public class </span><span style="background: white; color: #2b91af">TrackViewModel
+</span><span style="background: white; color: black">{
+    </span><span style="background: white; color: blue">public </span><span style="background: white; color: #2b91af">IEnumerable</span><span style="background: white; color: black">&lt;</span><span style="background: white; color: #2b91af">SessionHeaderViewModel</span><span style="background: white; color: black">&gt; Items
+    {
+        </span><span style="background: white; color: blue">get
+        </span><span style="background: white; color: black">{
+            </span><span style="background: white; color: blue">return
+                from </span><span style="background: white; color: black">sessionPlace </span><span style="background: white; color: blue">in </span><span style="background: white; color: black">_track.CurrentSessionPlaces
+                </span><span style="background: white; color: blue">orderby </span><span style="background: white; color: black">sessionPlace.Place.PlaceTime.Start
+                </span><span style="background: white; color: blue">select new </span><span style="background: white; color: #2b91af">SessionHeaderViewModel</span><span style="background: white; color: black">(sessionPlace);
+        }
+    }
+}
+</span></pre></p><p>  Each view model constructor takes a reference to the part of the model that it represents. So the TracksViewModel takes a reference to the SynchronizationService – the top-level object that provides the reference to the Conference. The TrackViewModel references a Track. And the SessionHeaderViewModel references a SessionPlace – a model object that knows where and when a session will be given.</p>
+<pre class="code"><span style="background: white; color: blue">public class </span><span style="background: white; color: #2b91af">TracksViewModel
+</span><span style="background: white; color: black">{
+    </span><span style="background: white; color: blue">private readonly </span><span style="background: white; color: #2b91af">SynchronizationService </span><span style="background: white; color: black">_synchronizationService;
+        
+    </span><span style="background: white; color: blue">public </span><span style="background: white; color: black">TracksViewModel(</span><span style="background: white; color: #2b91af">SynchronizationService </span><span style="background: white; color: black">synchronizationService)
+    {
+        _synchronizationService = synchronizationService;
+    }
+}
+</span></pre><pre class="code"><span style="background: white; color: blue">public class </span><span style="background: white; color: #2b91af">TrackViewModel
+</span><span style="background: white; color: black">{
+    </span><span style="background: white; color: blue">private readonly </span><span style="background: white; color: #2b91af">Track </span><span style="background: white; color: black">_track;
+        
+    </span><span style="background: white; color: blue">public </span><span style="background: white; color: black">TrackViewModel(</span><span style="background: white; color: #2b91af">Track </span><span style="background: white; color: black">track)
+    {
+        _track = track;
+    }
+}
+</span></pre><pre class="code"><span style="background: white; color: blue">public class </span><span style="background: white; color: #2b91af">SessionHeaderViewModel
+</span><span style="background: white; color: black">{
+    </span><span style="background: white; color: blue">private readonly </span><span style="background: white; color: #2b91af">SessionPlace </span><span style="background: white; color: black">_sessionPlace;
+        
+    </span><span style="background: white; color: blue">public </span><span style="background: white; color: black">SessionHeaderViewModel(</span><span style="background: white; color: #2b91af">SessionPlace </span><span style="background: white; color: black">sessionPlace)
+    {
+        _sessionPlace = sessionPlace;
+    }
+}
+</span></pre><h3>Add a selection model</h3>
+<p>The application also has a SelectionModel. This class records which session is currently selected. The SessionHeaderViewModel needs to set a property on the SelectionModel when it has been clicked. So let’s add the SelectionModel reference to the SessionHeaderViewModel constructor.</p>
+<pre class="code"><span style="background: white; color: blue">public class </span><span style="background: white; color: #2b91af">SessionHeaderViewModel
+</span><span style="background: white; color: black">{
+    </span><span style="background: white; color: blue">private readonly </span><span style="background: white; color: #2b91af">SessionPlace </span><span style="background: white; color: black">_sessionPlace;
+    </span><span style="background: white; color: blue">private readonly </span><span style="background: white; color: #2b91af">SelectionModel </span><span style="background: white; color: black">_selectionModel;
+        
+    </span><span style="background: white; color: blue">public </span><span style="background: white; color: black">SessionHeaderViewModel(</span><span style="background: white; color: #2b91af">SessionPlace </span><span style="background: white; color: black">sessionPlace)
+    {
+        _sessionPlace = sessionPlace;
+        _selectionModel = selectionModel;
+    }
+}
+</span></pre><p>After doing this, we have broken its parent view model – TrackViewModel. It needs to call the SessionHeaderViewModel constructor, so it needs to pass in the new parameter.</p>
+<pre class="code"><span style="background: white; color: blue">public class </span><span style="background: white; color: #2b91af">TrackViewModel
+</span><span style="background: white; color: black">{
+    </span><span style="background: white; color: blue">private readonly </span><span style="background: white; color: #2b91af">Track </span><span style="background: white; color: black">_track;
+    </span><span style="background: white; color: blue">private readonly </span><span style="background: white; color: #2b91af">SelectionModel </span><span style="background: white; color: black">_selectionModel;
+        
+    </span><span style="background: white; color: blue">public </span><span style="background: white; color: black">TrackViewModel(</span><span style="background: white; color: #2b91af">Track </span><span style="background: white; color: black">track, </span><span style="background: white; color: #2b91af">SelectionModel </span><span style="background: white; color: black">selectionModel)
+    {
+        _track = track;
+        _selectionModel = selectionModel;
+    }
+
+    </span><span style="background: white; color: blue">public </span><span style="background: white; color: #2b91af">IEnumerable</span><span style="background: white; color: black">&lt;</span><span style="background: white; color: #2b91af">SessionHeaderViewModel</span><span style="background: white; color: black">&gt; Items
+    {
+        </span><span style="background: white; color: blue">get
+        </span><span style="background: white; color: black">{
+            </span><span style="background: white; color: blue">return
+                from </span><span style="background: white; color: black">sessionPlace </span><span style="background: white; color: blue">in </span><span style="background: white; color: black">_track.CurrentSessionPlaces
+                </span><span style="background: white; color: blue">orderby </span><span style="background: white; color: black">sessionPlace.Place.PlaceTime.Start
+                </span><span style="background: white; color: blue">select new </span><span style="background: white; color: #2b91af">SessionHeaderViewModel</span><span style="background: white; color: black">(sessionPlace, _selectionModel);
+        }
+    }
+}
+</span></pre><p>Now it takes the SelectionModel and passes it on through. But guess what. Now we’ve broken <em>its</em> parent – TracksViewModel. So again, we have to plumb the parameter through the parent.</p>
+<pre class="code"><span style="background: white; color: blue">public class </span><span style="background: white; color: #2b91af">TracksViewModel
+</span><span style="background: white; color: black">{
+    </span><span style="background: white; color: blue">private readonly </span><span style="background: white; color: #2b91af">SynchronizationService </span><span style="background: white; color: black">_synchronizationService;
+    </span><span style="background: white; color: blue">private readonly </span><span style="background: white; color: #2b91af">SelectionModel </span><span style="background: white; color: black">_selectionModel;
+        
+    </span><span style="background: white; color: blue">public </span><span style="background: white; color: black">TracksViewModel(</span><span style="background: white; color: #2b91af">SynchronizationService </span><span style="background: white; color: black">synchronizationService, </span><span style="background: white; color: #2b91af">SelectionModel </span><span style="background: white; color: black">selectionModel)
+    {
+        _synchronizationService = synchronizationService;
+        _selectionModel = selectionModel;
+    }
+
+    </span><span style="background: white; color: blue">public </span><span style="background: white; color: #2b91af">IEnumerable</span><span style="background: white; color: black">&lt;</span><span style="background: white; color: #2b91af">TrackViewModel</span><span style="background: white; color: black">&gt; Tracks
+    {
+        </span><span style="background: white; color: blue">get
+        </span><span style="background: white; color: black">{
+</span><span style="background: white; color: black">            </span><span style="background: white; color: blue">return
+                from </span><span style="background: white; color: black">track </span><span style="background: white; color: blue">in </span><span style="background: white; color: black">_synchronizationService.Conference.Tracks
+                </span><span style="background: white; color: blue">orderby </span><span style="background: white; color: black">track.Name
+                </span><span style="background: white; color: blue">select new </span><span style="background: white; color: #2b91af">TrackViewModel</span><span style="background: white; color: black">(track, _selectionModel);
+        }
+    }
+}
+</span></pre><p>And so it goes with every constructor parameter I need to add. If a child view model needs to know about it, then the parent view model needs to provide it. And it bubbles up the hierarchy. Every level needs to know about all of these parameters, even if they don’t use them directly.</p>
+<h3>Functional IoC to the rescue</h3>
+<p>This looks like the sort of problem that an IoC container solves. IoC – Inversion of Control – is a pattern that takes construction and dependency management out of the hands of business objects, like view models. It places that responsibility in the hands of a container. The IoC container creates all of the business objects, so that they don’t have to create each other. And it figures out how to resolve their dependencies so that the intermediate objects don’t need to worry about it.</p>
+<p>There are many great open source IoC containers available. One that would be particularly adept at solving this problem is <a href="http://code.google.com/p/autofac/">AutoFac</a>. But we’re not going to use AutoFac, or any other IoC container library. Instead, we are going to use a feature of the language: function closure.</p>
+<p>Closure simply means that a function in C# will encapsulate any variables that are referenced within the function body. So we can declare a function that creates a SessionHeaderViewModel like so:</p>
+<pre class="code"><span style="background: white; color: #2b91af">SelectionModel </span><span style="background: white; color: black">selectionModel = </span><span style="background: white; color: blue">new </span><span style="background: white; color: #2b91af">SelectionModel</span><span style="background: white; color: black">();
+
+</span><span style="background: white; color: #2b91af">Func</span><span style="background: white; color: black">&lt;</span><span style="background: white; color: #2b91af">SessionPlace</span><span style="background: white; color: black">, </span><span style="background: white; color: #2b91af">SessionHeaderViewModel</span><span style="background: white; color: black">&gt; newSessionHeaderViewModel = s =&gt;
+    </span><span style="background: white; color: blue">new </span><span style="background: white; color: #2b91af">SessionHeaderViewModel</span><span style="background: white; color: black">(s, selectionModel);
+</span></pre><p>The variable selectionModel is declared outside of the scope of the lambda, but since it is referenced inside, that variable is encapsulated within the function. Anyone who calls the newSessionHeaderViewModel function will get back an object with that same SelectionModel reference.</p>
+<p>Instead of letting the parent TrackViewModel call the SessionHeaderViewModel directly, we’ll just give it this function.</p>
+<pre class="code"><span style="background: white; color: blue">public class </span><span style="background: white; color: #2b91af">TrackViewModel
+</span><span style="background: white; color: black">{
+    </span><span style="background: white; color: blue">private readonly </span><span style="background: white; color: #2b91af">Track </span><span style="background: white; color: black">_track;
+    </span><span style="background: white; color: blue">private readonly </span><span style="background: white; color: #2b91af">Func</span><span style="background: white; color: black">&lt;</span><span style="background: white; color: #2b91af">SessionPlace</span><span style="background: white; color: black">, </span><span style="background: white; color: #2b91af">SessionHeaderViewModel</span><span style="background: white; color: black">&gt; _newSessionHeaderViewModel;
+
+    </span><span style="background: white; color: blue">public </span><span style="background: white; color: black">TrackViewModel(</span><span style="background: white; color: #2b91af">Track </span><span style="background: white; color: black">track, </span><span style="background: white; color: #2b91af">Func</span><span style="background: white; color: black">&lt;</span><span style="background: white; color: #2b91af">SessionPlace</span><span style="background: white; color: black">, </span><span style="background: white; color: #2b91af">SessionHeaderViewModel</span><span style="background: white; color: black">&gt; newSessionHeaderViewModel)
+    {
+        _track = track;
+        _newSessionHeaderViewModel = newSessionHeaderViewModel;
+    }
+
+    </span><span style="background: white; color: blue">public </span><span style="background: white; color: #2b91af">IEnumerable</span><span style="background: white; color: black">&lt;</span><span style="background: white; color: #2b91af">SessionHeaderViewModel</span><span style="background: white; color: black">&gt; Items
+    {
+        </span><span style="background: white; color: blue">get
+        </span><span style="background: white; color: black">{
+            </span><span style="background: white; color: blue">return
+                from </span><span style="background: white; color: black">sessionPlace </span><span style="background: white; color: blue">in </span><span style="background: white; color: black">_track.CurrentSessionPlaces
+                </span><span style="background: white; color: blue">orderby </span><span style="background: white; color: black">sessionPlace.Place.PlaceTime.Start
+                </span><span style="background: white; color: blue">select </span><span style="background: white; color: black">_newSessionHeaderViewModel(sessionPlace);
+        }
+    }
+}
+</span></pre><p>Continuing this trend upward, we’ll define a function that creates TrackViewModels. Again, we’ll use functional closure to encapsulate the parameters we need.</p>
+<pre class="code"><span style="background: white; color: #2b91af">SelectionModel </span><span style="background: white; color: black">selectionModel = </span><span style="background: white; color: blue">new </span><span style="background: white; color: #2b91af">SelectionModel</span><span style="background: white; color: black">();
+
+</span><span style="background: white; color: #2b91af">Func</span><span style="background: white; color: black">&lt;</span><span style="background: white; color: #2b91af">SessionPlace</span><span style="background: white; color: black">, </span><span style="background: white; color: #2b91af">SessionHeaderViewModel</span><span style="background: white; color: black">&gt; newSessionHeaderViewModel = s =&gt;
+    </span><span style="background: white; color: blue">new </span><span style="background: white; color: #2b91af">SessionHeaderViewModel</span><span style="background: white; color: black">(s, selectionModel);
+
+</span><span style="background: white; color: #2b91af">Func</span><span style="background: white; color: black">&lt;</span><span style="background: white; color: #2b91af">Track</span><span style="background: white; color: black">, </span><span style="background: white; color: #2b91af">TrackViewModel</span><span style="background: white; color: black">&gt; newTrackViewModel = t =&gt;
+    </span><span style="background: white; color: blue">new </span><span style="background: white; color: #2b91af">TrackViewModel</span><span style="background: white; color: black">(t, newSessionHeaderViewModel);
+</span></pre><p>In this case, the newTrackViewModel function is encapsulating the newSessionHeaderViewModel function. So we change the TracksViewModel to use this function.</p>
+<pre class="code"><span style="background: white; color: blue">public class </span><span style="background: white; color: #2b91af">TracksViewModel
+</span><span style="background: white; color: black">{
+    </span><span style="background: white; color: blue">private readonly </span><span style="background: white; color: #2b91af">SynchronizationService </span><span style="background: white; color: black">_synchronizationService;
+    </span><span style="background: white; color: blue">private readonly </span><span style="background: white; color: #2b91af">Func</span><span style="background: white; color: black">&lt;</span><span style="background: white; color: #2b91af">Track</span><span style="background: white; color: black">, </span><span style="background: white; color: #2b91af">TrackViewModel</span><span style="background: white; color: black">&gt; _newTrackViewModel;
+
+    </span><span style="background: white; color: blue">public </span><span style="background: white; color: black">TracksViewModel(</span><span style="background: white; color: #2b91af">SynchronizationService </span><span style="background: white; color: black">synchronizationService, </span><span style="background: white; color: #2b91af">Func</span><span style="background: white; color: black">&lt;</span><span style="background: white; color: #2b91af">Track</span><span style="background: white; color: black">, </span><span style="background: white; color: #2b91af">TrackViewModel</span><span style="background: white; color: black">&gt; newTrackViewModel)
+    {
+        _synchronizationService = synchronizationService;
+        _newTrackViewModel = newTrackViewModel;
+    }
+
+    </span><span style="background: white; color: blue">public </span><span style="background: white; color: #2b91af">IEnumerable</span><span style="background: white; color: black">&lt;</span><span style="background: white; color: #2b91af">TrackViewModel</span><span style="background: white; color: black">&gt; Tracks
+    {
+        </span><span style="background: white; color: blue">get
+        </span><span style="background: white; color: black">{
+            </span><span style="background: white; color: blue">return
+                from </span><span style="background: white; color: black">track </span><span style="background: white; color: blue">in </span><span style="background: white; color: black">_synchronizationService.Conference.Tracks
+                </span><span style="background: white; color: blue">orderby </span><span style="background: white; color: black">track.Name
+                </span><span style="background: white; color: blue">select </span><span style="background: white; color: black">_newTrackViewModel(track);
+        }
+    }
+}
+</span></pre><h3></h3>
+<h3>A containerless container</h3>
+<p>All of the functions related to a given top-level view model need to be managed in the same scope. That is what allows those functions to be encapsulated into each other via closure. And so I like to declare a static class in my view model namespace called Container. This static class contains a static method that creates a top-level view model.</p>
+<pre class="code"><span style="background: white; color: blue">public static class </span><span style="background: white; color: #2b91af">Container
+</span><span style="background: white; color: black">{
+    </span><span style="background: white; color: blue">public static </span><span style="background: white; color: #2b91af">TracksViewModel </span><span style="background: white; color: black">CreateViewModel(
+        </span><span style="background: white; color: #2b91af">SelectionModel </span><span style="background: white; color: black">selectionModel,
+        </span><span style="background: white; color: #2b91af">SynchronizationService </span><span style="background: white; color: black">synchronizationService)
+    {
+        </span><span style="background: white; color: #2b91af">Func</span><span style="background: white; color: black">&lt;</span><span style="background: white; color: #2b91af">SessionPlace</span><span style="background: white; color: black">, </span><span style="background: white; color: #2b91af">SessionHeaderViewModel</span><span style="background: white; color: black">&gt; newSessionHeaderViewModel = s =&gt;
+            </span><span style="background: white; color: blue">new </span><span style="background: white; color: #2b91af">SessionHeaderViewModel</span><span style="background: white; color: black">(s, selectionModel);
+
+        </span><span style="background: white; color: #2b91af">Func</span><span style="background: white; color: black">&lt;</span><span style="background: white; color: #2b91af">Track</span><span style="background: white; color: black">, </span><span style="background: white; color: #2b91af">TrackViewModel</span><span style="background: white; color: black">&gt; newTrackViewModel = t =&gt;
+            </span><span style="background: white; color: blue">new </span><span style="background: white; color: #2b91af">TrackViewModel</span><span style="background: white; color: black">(t, newSessionHeaderViewModel);
+
+        </span><span style="background: white; color: blue">return new </span><span style="background: white; color: #2b91af">TracksViewModel</span><span style="background: white; color: black">(synchronizationService, newTrackViewModel);
+    }
+}
+</span></pre><p>Then if I need to add a parameter to any of the view models in this hierarchy, I simply add that parameter to this function. It is encapsulated into the functions that need it. The view models that don’t need it do not need to change.</p>
+<p>Without resorting to an IoC container library, I have defined a container that creates instances of view models. It manages the dependencies of each particular view model, so that the parent view models don’t have to. It does so simply by using the language feature of function closure.</p>
+<p>You can see the complete source code at <a title="https://github.com/michaellperry/MyCon" href="https://github.com/michaellperry/MyCon">https://github.com/michaellperry/MyCon</a>. Open the FacetedWorlds.MyCon project the WinRT folder.</p>
+  <div id="book-navigation-16" class="book-navigation">
+    
+        <div class="page-links clear-block">
+              <a href="../ioc/case.html" class="page-previous" title="Go to previous page">‹ The case for IoC containers</a>
+                    <a href="../ioc.html" class="page-up" title="Go to parent page">up</a>
+                </div>
+    
+  </div>
+</div>
+    <br />
+        	<div class="links-align">
+            <div class="bg-links">
+                <div class="links-left">
+                    <div class="links-right">
+                        <div class="links"><ul class="links inline"><li class="blog_usernames_blog first"><a href="../blogs/michael-l-perry.html" title="Read Michael L Perry&#039;s latest blog entries.">Michael L Perry&#039;s blog</a></li>
+<li class="comment_add last"><a href="http://qedcode.com/comment/reply/99#comment-form" title="Share your thoughts and opinions related to this posting.">Add new comment</a></li>
+</ul></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	    <br class="clear" />    
+    </div>                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <div id="footer">
+    	<div class="foot">
+        	                <span><a rel="license" href="http://creativecommons.org/licenses/by/3.0/us/"><img alt="Creative Commons License" src="../../licensebuttons.net/l/by/3.0/us/88x31.png" /></a><br /><span dc="http://purl.org/dc/elements/1.1/" href="http://purl.org/dc/dcmitype/Text" property="title" rel="type">Q.E.D. Code</span> by <a cc="http://creativecommons.org/ns#" href="../index.html" property="attributionName" rel="attributionURL">Michael L Perry</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/us/">Creative Commons Attribution 3.0 United States License</a>.</span>
+                    </div>
+    </div>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var _gaq = _gaq || [];_gaq.push(["_setAccount", "UA-389401-7"]);_gaq.push(["_trackPageview"]);(function() {var ga = document.createElement("script");ga.type = "text/javascript";ga.async = true;ga.src = ("https:" == document.location.protocol ? "https://ssl" : "http://www") + ".google-analytics.com/ga.js";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(ga, s);})();
+//--><!]]>
+</script>
+</body>
+
+<!-- Mirrored from qedcode.com/content/function-closure-ioc by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 13 Jan 2017 12:22:18 GMT -->
+</html>

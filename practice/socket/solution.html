@@ -1,0 +1,342 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" dir="ltr">
+
+<!-- Mirrored from qedcode.com/practice/socket/solution by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 13 Jan 2017 12:22:22 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Solution | Q.E.D. Code</title>
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="prev" href="hint.html" />
+<link rel="up" href="../socket.html" />
+<link rel="next" href="../cache.html" />
+<link rel="shortcut icon" href="http://qedcode.com/misc/favicon.ico" type="image/x-icon" />
+  <link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/modules/book/book.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/modules/node/node.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/modules/system/defaults.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/modules/system/system.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/modules/system/system-menus.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/modules/user/user.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/sites/all/modules/mollom/mollom.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/sites/all/modules/views/css/views.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/modules/comment/comment.css?2" />
+<link type="text/css" rel="stylesheet" media="all" href="http://qedcode.com/themes/theme073/style.css?2" />
+  <script type="text/javascript" src="http://qedcode.com/misc/jquery.js?2"></script>
+<script type="text/javascript" src="http://qedcode.com/misc/drupal.js?2"></script>
+<script type="text/javascript" src="http://qedcode.com/sites/all/modules/google_analytics/googleanalytics.js?2"></script>
+<script type="text/javascript" src="http://qedcode.com/sites/all/modules/mollom/mollom.js?2"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "googleanalytics": { "trackOutbound": 1, "trackMailto": 1, "trackDownload": 1, "trackDownloadExtensions": "7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip" } });
+//--><!]]>
+</script>
+  
+</head>
+  
+<body>
+    <table id="main">
+        <tr>
+            <td width="100%" class="header">
+            	<div class="top-left">
+                	<div class="top-right">
+                    	<table width="100%">
+                            <tr>
+                                <td width="100%" style="height:195px;">
+                                    <table width="100%">
+                                        <tr>
+                                            <td width="">
+                                                                                                    <a href="../../index.html" title="Home"><img src="http://qedcode.com/themes/theme073/images/logo.png" alt="Home" border="0" class="logo" /></a><br />
+                                                                                                                                                
+                                                                                            </td>
+                                            <td width="270">
+                                                <div class="search-box">
+                                                                                                    </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%" style="height:54px;">
+                                                                            <div class="pr-menu">
+                                            <ul class="links primary-links"><li class="menu-227 first"><a href="../../node.html" title="">Latest Article</a></li>
+<li class="menu-339"><a href="../../podcast.html" title="Q.E.D. Code Podcast">Podcast</a></li>
+<li class="menu-219"><a href="../../theory.html" title="">Theory</a></li>
+<li class="menu-220"><a href="../../practice.html" title="">Practice</a></li>
+<li class="menu-221 last"><a href="../../speaking.html" title="">Speaking</a></li>
+</ul>                                            <br class="clear" />
+                                        </div>
+                                                                    </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td width="100%">
+                <table width="100%" >
+                    <tr>
+                        <td width="189">
+                            <div class="left2">
+                                                                    <table width="100%">
+                                      <tr>
+                                        <td width="100%">
+                                            <div class="block block-block" id="block-block-2">
+	<div class="block-bot">
+    	<div class="block-top">
+        	<div class="block-indent">
+                <div class="title">
+                    <h3>About me</h3>
+                </div>
+                <div class="content"><div style="margin: 15px;">
+<p style="margin-bottom: 7px;">Michael L Perry</p>
+<p><a href="http://improvingenterprises.com/"><img src="../../images/IE-Logo.png" width="145" alt="Improving Enterprises" /></a></p>
+<p style="margin-bottom: 15px;">Principal Consultant</p>
+<p><a href="http://twitter.com/michaellperry">@michaellperry</a></p>
+</div>
+</div>
+            </div>
+        </div>
+    </div>
+</div><div class="block block-user" id="block-user-0">
+	<div class="block-bot">
+    	<div class="block-top">
+        	<div class="block-indent">
+                <div class="title">
+                    <h3>User login</h3>
+                </div>
+                <div class="content"><form action="http://qedcode.com/practice/socket/solution?destination=node%2F15"  accept-charset="UTF-8" method="post" id="user-login-form">
+<div><div class="form-item" id="edit-name-wrapper">
+ <label for="edit-name">Username: <span class="form-required" title="This field is required.">*</span></label>
+ <input type="text" maxlength="60" name="name" id="edit-name" size="15" value="" class="form-text required" />
+</div>
+<div class="form-item" id="edit-pass-wrapper">
+ <label for="edit-pass">Password: <span class="form-required" title="This field is required.">*</span></label>
+ <input type="password" name="pass" id="edit-pass"  maxlength="60"  size="15"  class="form-text required" />
+</div>
+<input type="submit" name="op" id="edit-submit" value="Log in"  class="form-submit" />
+<div class="item-list"><ul><li class="first last"><a href="../../user/password.html" title="Request new password via e-mail.">Request new password</a></li>
+</ul></div><input type="hidden" name="form_build_id" id="form-e79f854d9a8b6753bda975413f971ae2" value="form-e79f854d9a8b6753bda975413f971ae2"  />
+<input type="hidden" name="form_id" id="edit-user-login-block" value="user_login_block"  />
+
+</div></form>
+</div>
+            </div>
+        </div>
+    </div>
+</div>                                        </td>
+                                      </tr>
+                                    </table>
+                                                            </div>
+                        </td>
+                        <td width="0">
+                            <div class="right2">
+                                                            </div>
+                        </td>
+                        <td width="" class="cont-row">
+                            <div class="border-left">
+                                <div class="border-right">
+                                    <div class="border-bot">
+                                        <div class="border-top">
+                                            <div class="corner-bot-left">
+                                                <div class="corner-bot-right">
+                                                    <div class="corner-top-left">
+                                                        <div class="corner-top-right">
+                                                            <div class="cent">
+                                                                                                                                                                                                
+                                                                                                                        
+                                                                <h2>Solution</h2>
+                                                                                                                                                                                                                                                                 
+                                                                                                                    
+                                                                                                                    
+                                                              <!-- start main content -->
+                                                            <div class="node">
+	    <div class="taxonomy"></div>
+  
+    <div class="content"><p>Two weeks ago, I assigned <a href="http://adventuresinsoftware.com/blog/?p=440">homework</a>. Rewrite the .NET Socket API so that you can prove the following assertions:
+<ul>
+<li>You cannot use a Socket returned from Accept to accept any additional connections from the connection queue.
+</li><li>You cannot call Accept, Bind, Connect, Listen, Receive, or Send if the socket has been closed.
+</li><li>You must call Bind before you can call the Listen method.
+</li><li>You must call Listen before calling Accept.
+</li><li>Connect(string host, int port) can only be called if addressFamily is either InterNetwork or InterNetworkV6.
+</li><li>Connect cannot be called if Listen has been called.
+</li><li>You have to either call Connect or Accept before Sending and Receiving data.
+</li><li>If the socket has been previously disconnected, then you cannot use Connect to restore the connection. </li>
+</ul>
+</p><p> These assertions are prominently listed in the MSDN documentation. Why not roll them into the API itself? Let the compiler prove that we are using sockets correctly. Last week, I gave you a <a href="http://adventuresinsoftware.com/blog/?p=445">hint</a>. I moved the Send and Receive methods out to a different class so that we can prove that you've called Accept or Connect prior to Send or Receive. Both Accept and Connect became factory methods. You must call the factory before you get the object, and you must get the object before you call its methods. Q.E.D. Let's start from there and prove the rest of the assertions. <strong>Starting point</strong>
+<ul>
+<li>You have to either call Connect or Accept before Sending and Receiving data. </li>
+</ul>
+<pre>public class ConnectedSocket
+{
+    public int Receive(byte[] buffer);
+    public int Send(byte[] buffer);
+}
+
+public class Socket : IDisposable
+{
+    public Socket(SocketInformation socketInformation);
+    public Socket(AddressFamily addressFamily, SocketType socketType, ProtocolType protocolType);
+
+    public ConnectedSocket Accept();
+    public void Bind(EndPoint localEP);
+    public ConnectedSocket Connect(EndPoint remoteEP);
+    public ConnectedSocket Connect(string host, int port);
+    public void Dispose();
+    public void Listen(int backlog);
+}</pre></p><p>Looking through the list of assertions, we find that this one is already taken care of by the first change:</p>
+<ul>
+<li>You cannot use a Socket returned from Accept to accept any additional connections from the connection queue. </li>
+</ul>
+<p>The ConnectedSocket class doesn't have an Accept method, so you can't call it. Q.E.D.<br />
+<strong>Other prerequisites</strong>There are three other prerequisite assertions that we can prove in exactly the same way:</p>
+<ul>
+<li>You must call Bind before you can call the Listen method.
+</li><li>You must call Listen before calling Accept.
+</li><li>Connect cannot be called if Listen has been called. </li>
+</ul>
+<pre>public class Socket : IDisposable
+{
+    public Socket(SocketInformation socketInformation);
+    public Socket(AddressFamily addressFamily, SocketType socketType, ProtocolType protocolType);
+
+    public <strong>BoundSocket</strong> Bind(EndPoint localEP);
+    public ConnectedSocket Connect(EndPoint remoteEP);
+    public ConnectedSocket Connect(string host, int port);
+    public void Dispose();
+}
+
+public class BoundSocket
+{
+    public ListeningSocket Listen(int backlog);
+    public ConnectedSocket Connect(EndPoint remoteEP);
+    public ConnectedSocket Connect(string host, int port);
+}
+
+public class ListeningSocket
+{
+    public ConnectedSocket Accept();
+}</pre><p>Bind becomes a factory for the class that gives you Listen. Bind does not take away your ability to call Connect. Listen does.<br />
+<strong>Factory and product</strong>Factories are great prerequisites. Now that it is becoming more obvious that we are using that pattern, let's rename Socket and move IDisposable to the product.</p>
+<pre>public class <strong>SocketFactory</strong>
+{
+    public SocketFactory(SocketInformation socketInformation);
+    public SocketFactory(AddressFamily addressFamily, SocketType socketType, ProtocolType protocolType);
+
+    public BoundSocket Bind(EndPoint localEP);
+    public ConnectedSocket Connect(EndPoint remoteEP);
+    public ConnectedSocket Connect(string host, int port);
+}
+
+public class ConnectedSocket : <strong>IDisposable</strong>
+{
+    public int Receive(byte[] buffer);
+    public int Send(byte[] buffer);
+    public void Dispose();
+}</pre><p>The ConnectedSocket is the ultimate product. That's the socket that needs to be closed. And what do you know, this change proves another of our assertions:</p>
+<ul>
+<li>If the socket has been previously disconnected, then you cannot use Connect to restore the connection. </li>
+</ul>
+<p>It is impossible to call Connect on a socket that has been disposed, since they aren't the same object anymore.<br />
+<strong>Dispose once</strong>Now that the Dispose method is where it belongs, let's focus on the assertion most concerned with its use:</p>
+<ul>
+<li>You cannot call Accept, Bind, Connect, Listen, Receive, or Send if the socket has been closed. </li>
+</ul>
+<p>Accept, Bind, Connect, and Listen have already been taken care of, since they have become factory methods. To handle Send and Receive, we turn every ConnectedSocket factory into a callback:</p>
+<pre>public class ConnectedSocket
+{
+    public int Receive(byte[] buffer);
+    public int Send(byte[] buffer);
+}
+
+public <strong>void</strong> Connect(string host, int port, <strong>Action&lt;ConnectedSocket&gt;</strong> action);</pre><p>We have taken away the capability of disposing a socket. The factory does it on the consumer's behalf. Since there is no way for the consumer to call Dispose, and since the callback returns before Dispose is called, there is no way to call Send or Receive after Dispose. Q.E.D.<br />
+<strong>Specialized factory</strong>Which leaves us with one final assertion:</p>
+<ul>
+<li>Connect(string host, int port) can only be called if addressFamily is either InterNetwork or InterNetworkV6. </li>
+</ul>
+<p>Again, we want to move the restricted method into its own special class. But now, we want to enforce that certain values are provided, not that certain methods are called. We'll limit this by creating our own smaller enumeration.</p>
+<pre>public class IPSocketFactory : SocketFactory
+{
+    public enum Version { V4, V6 }
+    public IPSocketFactory(<strong>Version version</strong>, SocketType socketType, ProtocolType protocolType)
+        : base(
+            version == Version.V4 ? AddressFamily.InterNetwork : AddressFamily.InterNetworkV6,
+            socketType,
+            protocolType) { }
+
+    public void Connect(string host, int port, Action&lt;ConnectedSocket&gt; action);
+}</pre><p>If you want to call the Connect overload with two parameters, you have to use the limited enumeration to get the right factory. I didn't mess with the overloaded constructor, because it complicates things.<br />
+One slight wrinkle. In a previous change we created a copy of the Connect method, since it can be called after Bind(). So we make the same change there:</p>
+<pre>public class IPBoundSocket : BoundSocket
+{
+    public void Connect(string host, int port, Action&lt;ConnectedSocket&gt; action);
+}
+
+public class IPSocketFactory : SocketFactory
+{
+    public enum Version { V4, V6 }
+    public IPSocketFactory(Version version, SocketType socketType, ProtocolType protocolType)
+        : base(
+            version == Version.V4 ? AddressFamily.InterNetwork : AddressFamily.InterNetworkV6,
+            socketType,
+            protocolType) { }
+
+    public <strong>IPBoundSocket</strong> Bind(EndPoint localEP);
+    public void Connect(string host, int port, Action&lt;ConnectedSocket&gt; action);
+}</pre><p>The only way to get an IPBoundSocket is to use the IPSocketFactory. Therefore, you must have selected one of the Internet protocols. By the way, this is taking advantage of a little-used feature of C# called covarience. This is the one part of the proof that might not work in other languages.<br />
+So there you have it. A provably correct Socket API. There is no way to use it incorrectly. The compiler enforces all of the assertions that we would otherwise have to read the documentation to discover.</p>
+  <div id="book-navigation-16" class="book-navigation">
+    
+        <div class="page-links clear-block">
+              <a href="hint.html" class="page-previous" title="Go to previous page">‹ Hint</a>
+                    <a href="../socket.html" class="page-up" title="Go to parent page">up</a>
+                    <a href="../cache.html" class="page-next" title="Go to next page">Cache ›</a>
+          </div>
+    
+  </div>
+</div>
+    <br />
+        	<div class="links-align">
+            <div class="bg-links">
+                <div class="links-left">
+                    <div class="links-right">
+                        <div class="links"><ul class="links inline"><li class="blog_usernames_blog first"><a href="../../blogs/michael-l-perry.html" title="Read Michael L Perry&#039;s latest blog entries.">Michael L Perry&#039;s blog</a></li>
+<li class="comment_add last"><a href="http://qedcode.com/comment/reply/15#comment-form" title="Share your thoughts and opinions related to this posting.">Add new comment</a></li>
+</ul></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	    <br class="clear" />    
+    </div>                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <div id="footer">
+    	<div class="foot">
+        	                <span><a rel="license" href="http://creativecommons.org/licenses/by/3.0/us/"><img alt="Creative Commons License" src="../../../licensebuttons.net/l/by/3.0/us/88x31.png" /></a><br /><span dc="http://purl.org/dc/elements/1.1/" href="http://purl.org/dc/dcmitype/Text" property="title" rel="type">Q.E.D. Code</span> by <a cc="http://creativecommons.org/ns#" href="../../index.html" property="attributionName" rel="attributionURL">Michael L Perry</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/us/">Creative Commons Attribution 3.0 United States License</a>.</span>
+                    </div>
+    </div>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var _gaq = _gaq || [];_gaq.push(["_setAccount", "UA-389401-7"]);_gaq.push(["_trackPageview"]);(function() {var ga = document.createElement("script");ga.type = "text/javascript";ga.async = true;ga.src = ("https:" == document.location.protocol ? "https://ssl" : "http://www") + ".google-analytics.com/ga.js";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(ga, s);})();
+//--><!]]>
+</script>
+</body>
+
+<!-- Mirrored from qedcode.com/practice/socket/solution by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 13 Jan 2017 12:22:22 GMT -->
+</html>

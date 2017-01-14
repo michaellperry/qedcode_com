@@ -1,0 +1,697 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xml:base="http://qedcode.com"  xmlns:dc="http://purl.org/dc/elements/1.1/">
+<channel>
+ <title>Michael L Perry&#039;s blog</title>
+ <link>http://qedcode.com/blogs/michael-l-perry</link>
+ <description>Q.E.D. is about confidence in software. It is a system of coding practices by which we can write mathematically provable software in any language.</description>
+ <language>en</language>
+<item>
+ <title>The Lambda Calculus in Notepad</title>
+ <link>http://qedcode.com/content/lambda-calculus-notepad</link>
+ <description>&lt;p&gt;The Lambda Calculus is a system of logic created by Alonzo Church in 1929 to express theorems in a minimal system with a consistent set of rules. The Lambda Calculus is sufficient to compute any mathematical formula that we can evaluate, or to run any program that we could give a computer. It can even run its own rules. And it does it all with search and replace; functions readily executed in Notepad.&lt;/p&gt;
+&lt;p&gt;In this talk, we explore computer language design from the perspective of The Lambda Calculus. We build up a system of computation, data structures, and algorithms. And we do it all in Notepad!&lt;/p&gt;
+&lt;p&gt;Attached is the output of the first presentation of this talk, at the Dallas Functional Programmers. November 23, 2015.&lt;/p&gt;
+</description>
+ <comments>http://qedcode.com/content/lambda-calculus-notepad#comments</comments>
+ <pubDate>Tue, 24 Nov 2015 04:47:39 +0000</pubDate>
+ <dc:creator>Michael L Perry</dc:creator>
+ <guid isPermaLink="false">120 at http://qedcode.com</guid>
+</item>
+<item>
+ <title>Jinaga - A universal back-end for single page web applications</title>
+ <link>http://qedcode.com/jinaga</link>
+ <description>&lt;style type=&quot;text/css&quot;&gt;
+.pl-k {
+    color: #a71d5d;
+}
+.pl-e, .pl-en {
+    color: #795da3;
+}
+.pl-pds, .pl-s, .pl-s .pl-pse .pl-s1, .pl-sr, .pl-sr .pl-cce, .pl-sr .pl-sra, .pl-sr .pl-sre {
+    color: #183691;
+}
+&lt;/style&gt;&lt;p&gt;
+When you&#039;re working on a web application, you want to keep your head in the Angular/Knockout/Ember, CSS, and HTML. You want to keep thinking about the front end.&lt;/p&gt;
+&lt;p&gt;But then you get to a point where you need to save some data, record a user action, or query to update the page. And so you stop what you are doing and switch to the back end.&lt;/p&gt;
+&lt;h2&gt;Advantages over 3-tier&lt;/h2&gt;
+&lt;p&gt;The three-tier style of creating web applications leads you to create a back-end MVC controller for each kind of resource that the app might want to save. The controller transforms it into a document or a set of relational rows and saves it to the database. Then another controller (or at least another method) queries based on parameters, reads that data back out of the database, and translates it into the JSON that the front end requires.&lt;/p&gt;
+&lt;p&gt;For each new application feature, you need to touch all three tiers: front-end, back-end, and database.&lt;/p&gt;
+&lt;p&gt;A universal back end cuts out all that extra work. The front end simply creates a JSON document and saves it, all from client code. Then it queries for data again using JSON, and the universal back end does all the work.&lt;/p&gt;
+&lt;p&gt;For each new application feature, you just write front-end code.&lt;/p&gt;
+&lt;h2&gt;No (application-specific) Back End&lt;/h2&gt;
+&lt;p&gt;There are several universal back ends (&lt;a href=&quot;https://www.firebase.com/&quot;&gt;Firebase&lt;/a&gt;, &lt;a href=&quot;http://hood.ie/&quot;&gt;Hoodie&lt;/a&gt;, &lt;a href=&quot;https://parse.com/&quot;&gt;Parse&lt;/a&gt;, and others listed at &lt;a href=&quot;http://nobackend.org/&quot;&gt;nobackend.org&lt;/a&gt;). &lt;a href=&quot;http://jinaga.com&quot;&gt;Jinaga&lt;/a&gt; is different. It uses immutable facts to ensure that changes are easy to distribute across several devices. Immutability makes conflict detection and resolution simple.&lt;/p&gt;
+&lt;p&gt;Another advantage is that Jinaga is open source. Many of the above backends-as-a-service are commercial products. You host your data on their servers and pay them a monthly fee. But Jinaga is not a product. You install it on your own server and host your own data.&lt;/p&gt;
+&lt;h2&gt;Simple API&lt;/h2&gt;
+&lt;p&gt;There are only two functions that you will call from your front-end code. First, call &lt;strong&gt;fact&lt;/strong&gt; in order to save some data:&lt;/p&gt;
+&lt;pre&gt;j.fact({
+  type&lt;span class=&quot;pl-k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;Task&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;,
+  list&lt;span class=&quot;pl-k&quot;&gt;:&lt;/span&gt; {
+    type&lt;span class=&quot;pl-k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;TodoList&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;,
+    name&lt;span class=&quot;pl-k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;Chores&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+  },
+  description&lt;span class=&quot;pl-k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;Take out the trash&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+});&lt;/pre&gt;&lt;p&gt;
+This records the fact that there is a task with the description &quot;Take out the trash&quot;. Furthermore, it relates this fact to the list with the name &quot;Chores&quot;. We can now call &lt;strong&gt;watch&lt;/strong&gt; to query for all tasks within that list:&lt;/p&gt;
+&lt;pre&gt;&lt;span class=&quot;pl-k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;pl-en&quot;&gt;tasksInList&lt;/span&gt;(&lt;span class=&quot;pl-smi&quot;&gt;l&lt;/span&gt;) {
+  &lt;span class=&quot;pl-k&quot;&gt;return&lt;/span&gt; {
+    type&lt;span class=&quot;pl-k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;Task&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;,
+    list&lt;span class=&quot;pl-k&quot;&gt;:&lt;/span&gt; l
+  };
+}
+
+&lt;span class=&quot;pl-k&quot;&gt;var&lt;/span&gt; chores &lt;span class=&quot;pl-k&quot;&gt;=&lt;/span&gt; {
+  type&lt;span class=&quot;pl-k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;TodoList&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;,
+  name&lt;span class=&quot;pl-k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;Chores&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+};
+
+&lt;span class=&quot;pl-k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;pl-en&quot;&gt;taskAdded&lt;/span&gt;(&lt;span class=&quot;pl-smi&quot;&gt;task&lt;/span&gt;) {
+  &lt;span class=&quot;pl-c&quot;&gt;// Render the task in the UI&lt;/span&gt;
+}
+
+j.&lt;span class=&quot;pl-c1&quot;&gt;watch&lt;/span&gt;(chores, [tasksInList], taskAdded);&lt;/pre&gt;&lt;p&gt;
+This will query for all tasks currently in the list, and add them all to the UI. But it doesn&#039;t stop there. It will continue adding tasks to the UI as the user enters more: it will call &lt;strong&gt;taskAdded&lt;/strong&gt; whenever &lt;strong&gt;fact&lt;/strong&gt; is called.&lt;/p&gt;
+&lt;p&gt;And one more thing. It might be called on another browser. That works, too. There&#039;s one single API function for loading, refreshing, and synchronizing data.&lt;/p&gt;
+&lt;h2&gt;Get Started&lt;/h2&gt;
+&lt;p&gt;To get started using Jinaga, install Mongo, Node, and Bower for your platform. Then get the NPM and Bower packages for Jinaga, and write your very own universal back end:&lt;/p&gt;
+&lt;pre&gt;&lt;span class=&quot;pl-k&quot;&gt;var&lt;/span&gt; JinagaDistributor &lt;span class=&quot;pl-k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;pl-c1&quot;&gt;require&lt;/span&gt;(&lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;jinaga/jinaga.distributor.server&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;);
+&lt;span class=&quot;pl-k&quot;&gt;var&lt;/span&gt; MongoProvider &lt;span class=&quot;pl-k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;pl-c1&quot;&gt;require&lt;/span&gt;(&lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;jinaga/jinaga.mongo&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;);
+&lt;span class=&quot;pl-k&quot;&gt;var&lt;/span&gt; url &lt;span class=&quot;pl-k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;&#039;&lt;/span&gt;mongodb://localhost:27017/dev&lt;span class=&quot;pl-pds&quot;&gt;&#039;&lt;/span&gt;&lt;/span&gt;;
+&lt;span class=&quot;pl-k&quot;&gt;var&lt;/span&gt; port &lt;span class=&quot;pl-k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;pl-c1&quot;&gt;8888&lt;/span&gt;;
+
+&lt;span class=&quot;pl-k&quot;&gt;var&lt;/span&gt; mongo &lt;span class=&quot;pl-k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;pl-k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;pl-en&quot;&gt;MongoProvider&lt;/span&gt;(url);
+JinagaDistributor.listen(mongo, mongo, port);&lt;/pre&gt;&lt;p&gt;
+Start the app and connect from the front end:&lt;/p&gt;
+&lt;pre&gt;&lt;span class=&quot;pl-k&quot;&gt;var&lt;/span&gt; j &lt;span class=&quot;pl-k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;pl-k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;pl-en&quot;&gt;Jinaga&lt;/span&gt;();
+j.sync(&lt;span class=&quot;pl-k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;pl-en&quot;&gt;JinagaDistributor&lt;/span&gt;(&lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;ws://localhost:8888/&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;));&lt;/pre&gt;&lt;p&gt;
+That&#039;s the last time you&#039;ll need to touch the back end.&lt;/p&gt;
+</description>
+ <comments>http://qedcode.com/jinaga#comments</comments>
+ <pubDate>Sat, 31 Oct 2015 22:05:59 +0000</pubDate>
+ <dc:creator>Michael L Perry</dc:creator>
+ <guid isPermaLink="false">119 at http://qedcode.com</guid>
+</item>
+<item>
+ <title>Turing&#039;s Keyboard</title>
+ <link>http://qedcode.com/content/turings-keyboard</link>
+ <description>&lt;p&gt;&lt;img style=&quot;float: right; display: inline&quot; src=&quot;http://a2.files.biography.com/image/upload/c_fill,cs_srgb,dpr_1.0,g_face,h_300,q_80,w_300/MTE5NDg0MDU1MTUzMTE2Njg3.jpg&quot; align=&quot;right&quot; /&gt;In the very same stroke wherein he created the computer program, the architect declared that it cannot be verified.&lt;/p&gt;
+&lt;p&gt;Alan Turing set out to prove that some problems are undecidable. Not that they don&#039;t have a solution -- Kurt Godel proved that several years earlier. No, Turing proved that you cannot even decide whether or not they have a solution.&lt;/p&gt;
+&lt;p&gt;To do so, he created a keyboard. On this keyboard were symbols that represented operations that a machine could perform. A programmer would sit at this keyboard and enter a string of symbols onto a tape, leaving spaces in between for a Universal Turing Machine to use as a workspace. The Universal Turing Machine was capable of executing any program that the programmer was clever enough to enter using the keyboard that Turing provided.&lt;/p&gt;
+&lt;p&gt;Now enter an observer. The observer would like to know whether the program meets some set of requirements. Take a simple requirement: &lt;strong&gt;that the program print a zero&lt;/strong&gt;. Sure, it would be easy to write a program that satisfies this requirement, but the observer doesn&#039;t get to write the program. He is simply given a program, and he has to decide whether or not it prints a zero. The programmer could type anything at all on Turing&#039;s keyboard.&lt;/p&gt;
+&lt;p&gt;If the programmer typed &amp;quot;Print 0&amp;quot;, then the observer would declare the program correct. If the programmer typed &amp;quot;Print 1&amp;quot;, then he could declare it incorrect. But he could just as easily type convoluted branching logic with a &amp;quot;Print 0&amp;quot; embedded within. If the observer were unable to follow the branching logic to completion, he may find it difficult to discover whether the embedded statement is ever executed. Turing showed that there are some programs that could be written, where the observer would not be able to decide.&lt;/p&gt;
+&lt;h3&gt;Decidable Programs&lt;/h3&gt;
+&lt;p&gt;So if we cannot even prove this simple assertion about an arbitrary program, what hope have we of more interesting assertions? How can we prove, for example, that a banking program does not create or destroy money? How can we prove that a communication program opens a connection before sending a message? In short, how can we prove that our software has no bugs?&lt;/p&gt;
+&lt;p&gt;There is only one way. We need only take Turing&#039;s keyboard away from the programmer.&lt;/p&gt;
+&lt;p&gt;Let us not allow him to enter any arbitrary sequence of instructions. Instead, let&#039;s confine him to a small set of transforms. He must start with an empty program. Then, to achieve a single requirement, he must transform the program by following a constrained set of rules. He must transform the program step-by-step into a more complex construction that eventually solves all given requirements. At each point along the path, the program is verifiable. We never let the programmer stray into the space where the program is undecidable. There are certainly some programs that cannot be written this way. But if we are careful in our selection of transforms, then perhaps we can write most of the interesting ones.&lt;/p&gt;
+</description>
+ <comments>http://qedcode.com/content/turings-keyboard#comments</comments>
+ <pubDate>Tue, 06 Oct 2015 04:14:53 +0000</pubDate>
+ <dc:creator>Michael L Perry</dc:creator>
+ <guid isPermaLink="false">118 at http://qedcode.com</guid>
+</item>
+<item>
+ <title>A Solution to the Punch 22 Challenge</title>
+ <link>http://qedcode.com/content/solution-punch-22-challenge</link>
+ <description>&lt;p&gt;The &lt;a href=&quot;http://realmode.com/punch22.html&quot;&gt;Punch 22 Challenge&lt;/a&gt; is to find a 7-bit encoding of the 26 letters of the English alphabet that can be punched on a paper tape … twice. That is, after the tape has been used once with this encoding, it can be fed into a combination reader/writer machine that will punch additional holes to change to a different letter.&lt;/p&gt;
+&lt;p&gt;The first thing we notice about this encoding is that it has to have more than one hole pattern assigned to a letter. On the first write, with an unused tape, we write one pattern. On the second write, we choose a different pattern based on the holes that are already punched.&lt;/p&gt;
+&lt;p&gt;I’ll let you read the original article for a detailed description of the problem. What follows here is an analysis of the problem and then, if you scroll to the end, the solution. If you want to solve it yourself, stop reading now.&lt;/p&gt;
+&lt;h3&gt;Tape costs more than people&lt;/h3&gt;
+&lt;p&gt;Apparently, paper is really expensive. I am embarrassed to admit how much time I’ve spent on this problem, but I’m sure you could buy quite a lot of paper tape with my hourly rate for that duration. Nevertheless, once a problem is solved, the solution can be scaled. This may be an academic problem, but others like it have lead to some real advancements in our industry. Huffman Coding. Compression. Reliable magnetic storage.&lt;/p&gt;
+&lt;p&gt;At its heart, this is an Information Theory problem. How much information is in two punches of a tape? How can we compress all valid permutations of two characters down to 7 bits? How much of the information about the first character is retained after the second character is punched? And can you reconstruct with some probability the original message that was first written to the tape?&lt;/p&gt;
+&lt;p&gt;I love Information Theory, so this problem had me at the start.&lt;/p&gt;
+&lt;h3&gt;Reachability&lt;/h3&gt;
+&lt;p&gt;The problem is really one of reachability of nodes in a directed acyclic graph. When we punch a hole, we can go forward, but we can’t go back.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://qedcode.com/sites/default/files/6f67680e688f_13407/Graph.png&quot;&gt;&lt;img title=&quot;Graph&quot; style=&quot;border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px&quot; border=&quot;0&quot; alt=&quot;Graph&quot; src=&quot;http://qedcode.com/sites/default/files/6f67680e688f_13407/Graph_thumb.png&quot; width=&quot;87&quot; height=&quot;159&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;If you had 3 bits, they would form a graph that looks a little like a cube.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://qedcode.com/sites/default/files/6f67680e688f_13407/Graph_3.png&quot;&gt;&lt;img title=&quot;Graph&quot; style=&quot;border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px&quot; border=&quot;0&quot; alt=&quot;Graph&quot; src=&quot;http://qedcode.com/sites/default/files/6f67680e688f_13407/Graph_thumb_3.png&quot; width=&quot;194&quot; height=&quot;244&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The graph of the full 7 bits looks a bit more complex.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://qedcode.com/sites/default/files/6f67680e688f_13407/Graph_4.png&quot;&gt;&lt;img title=&quot;Graph&quot; style=&quot;border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px&quot; border=&quot;0&quot; alt=&quot;Graph&quot; src=&quot;http://qedcode.com/sites/default/files/6f67680e688f_13407/Graph_thumb_4.png&quot; width=&quot;753&quot; height=&quot;160&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;But the concept is the same no matter how big or small the graph. Each of the numbers represents a symbol that we could punch on the tape. The arrows point to all the symbols that we can reach by punching one more hole. We can construct the set of all symbols reachable from a single starting point. These are all the symbols that I could punch over the starting symbol.&lt;/p&gt;
+&lt;p&gt;Suppose I had the symbol 42. This is the binary 0101010. It has three holes punched. From there, I could reach the following symbols:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://qedcode.com/sites/default/files/6f67680e688f_13407/Graph_5.png&quot;&gt;&lt;img title=&quot;graph&quot; style=&quot;border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px&quot; border=&quot;0&quot; alt=&quot;graph&quot; src=&quot;http://qedcode.com/sites/default/files/6f67680e688f_13407/Graph_thumb_5.png&quot; width=&quot;756&quot; height=&quot;161&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This tells me that if there was a 42 on the tape, then I could only punch the 16 symbols that are reachable from that node. That’s key.&lt;/p&gt;
+&lt;h3&gt;The initial symbols&lt;/h3&gt;
+&lt;p&gt;Let’s review the problem. We need to create an encoding that allows the tape to be reused once. The encoding assigns a letter to each of the 128 possible symbols that I could punch. So what are the rules by which we will use this encoding?&lt;/p&gt;
+&lt;p&gt;When the machine needs to punch a letter, it first reads what’s already there. If this is the first time using the tape, then no holes are punched; it’s a zero. In that case, it will punch the initial symbol for the letter.&lt;/p&gt;
+&lt;p&gt;The second time through, each cell is going to contain one of the initial symbols. If I want to punch a different letter, then it has to be reachable from that initial symbol. If the current symbol already represents the letter, then you don’t need to change it. You have no idea what letter is coming next, so at least one symbol for every letter has to be reachable from each symbol in the initial set.&lt;/p&gt;
+&lt;p&gt;That means that 42 cannot be an initial symbol.&lt;/p&gt;
+&lt;p&gt;I can only reach 16 symbols from 42 (including 42 itself). By the pigeon-hole principle, I cannot assign 26 letters to 16 symbols.&lt;/p&gt;
+&lt;p&gt;Looking back at the graph, we can see that the symbol at the top – zero – can reach the entire graph. At the second tier, we have symbols with one hole punched. They can reach only those symbols that have that hole punched, which is half of them. The third tier has two holes punched. It cuts reachability in half again. 42 is in the fourth tier, with three holes punched, so it has cut the number in half three times. Each tier can reach half of what the prior tier could. Let’s label the tiers and count how many symbols are in each tier, and how much of the graph they can reach.&lt;/p&gt;
+&lt;table cellspacing=&quot;0&quot; cellpadding=&quot;2&quot; width=&quot;401&quot; border=&quot;0&quot;&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td valign=&quot;top&quot; width=&quot;134&quot;&gt;Tier&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;139&quot;&gt;Symbols&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;126&quot;&gt;Reachable&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td valign=&quot;top&quot; width=&quot;134&quot;&gt;P&lt;sub&gt;0&lt;/sub&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;139&quot;&gt;1&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;126&quot;&gt;128&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td valign=&quot;top&quot; width=&quot;134&quot;&gt;P&lt;sub&gt;1&lt;/sub&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;139&quot;&gt;7&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;126&quot;&gt;64&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td valign=&quot;top&quot; width=&quot;134&quot;&gt;P&lt;sub&gt;2&lt;/sub&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;139&quot;&gt;21&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;126&quot;&gt;32&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td valign=&quot;top&quot; width=&quot;134&quot;&gt;P&lt;sub&gt;3&lt;/sub&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;139&quot;&gt;35&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;126&quot;&gt;16&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td valign=&quot;top&quot; width=&quot;134&quot;&gt;P&lt;sub&gt;4&lt;/sub&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;139&quot;&gt;35&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;126&quot;&gt;8&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td valign=&quot;top&quot; width=&quot;134&quot;&gt;P&lt;sub&gt;5&lt;/sub&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;139&quot;&gt;21&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;126&quot;&gt;4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td valign=&quot;top&quot; width=&quot;134&quot;&gt;P&lt;sub&gt;6&lt;/sub&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;139&quot;&gt;7&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;126&quot;&gt;2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td valign=&quot;top&quot; width=&quot;134&quot;&gt;P&lt;sub&gt;7&lt;/sub&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;153&quot;&gt;1&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;157&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Since we need to assign distinct letters to the symbols reachable from every initial symbol, they must all be able to reach at least 26 symbols. All of the initial symbols must be in one of the first three tiers: P&lt;sub&gt;0&lt;/sub&gt;, P&lt;sub&gt;1&lt;/sub&gt;, or P&lt;sub&gt;2&lt;/sub&gt;. Lower tiers cannot reach enough symbols.&lt;/p&gt;
+&lt;p&gt;And since we have to assign 26 initial symbols, we have to consume the first three tiers with only 3 slots left. There are a total of 29 symbols available for us to choose. That means that at least 18 of the initial symbols are in P&lt;sub&gt;2&lt;/sub&gt;.&lt;/p&gt;
+&lt;h3&gt;Parceling the alphabet&lt;/h3&gt;
+&lt;p&gt;Now the challenge becomes assigning letters to the remaining tiers to be sure that the alphabet is covered from every symbol in P&lt;sub&gt;2&lt;/sub&gt;. The initial symbol at P&lt;sub&gt;2&lt;/sub&gt; can reach itself, but the remaining 25 letters need to be accounted for in the lower tiers.&lt;/p&gt;
+&lt;p&gt;If we were to solve the problem for P&lt;sub&gt;2&lt;/sub&gt;, then P&lt;sub&gt;0&lt;/sub&gt; and P&lt;sub&gt;1&lt;/sub&gt; would be solved as well. P&lt;sub&gt;0&lt;/sub&gt; has only one symbol – zero, and it can already reach the entire graph. P&lt;sub&gt;1&lt;/sub&gt; has 7 symbols. Each one can reach 6 symbols in P&lt;sub&gt;2&lt;/sub&gt; by punching one of the remaining holes. If any one these 6 symbols can reach the entire alphabet, then so can the initial symbol in P&lt;sub&gt;1&lt;/sub&gt;.&lt;/p&gt;
+&lt;p&gt;Remember that we have at least 18 initial symbols in P&lt;sub&gt;2&lt;/sub&gt;. How do we reach the alphabet from each of those 18 initial symbols? We can flip the problem, and instead ask how we can parcel out the 26 letters so that at least one symbol for each letter is reachable from all 18 of the initial symbols in P&lt;sub&gt;2&lt;/sub&gt;.&lt;/p&gt;
+&lt;p&gt;Let’s identify 26 sets of symbols that can be reached from at least 18 P&lt;sub&gt;2&lt;/sub&gt;s. The first set is easy. It contains only the symbol 127, or binary 1111111. The entire graph can reach this symbol. Unfortunately, there is only of those, and we still have 25 letters to assign.&lt;/p&gt;
+&lt;p&gt;Then we can construct a set based on the P&lt;sub&gt;6&lt;/sub&gt;s. These are the symbols with 6 ones, such as 126, or binary 1111110. The initial symbols with a one in the final position cannot reach this symbol, so we have to add symbols that they can reach. Each of these P2s has one other bit set, so we need to choose symbols that cover all possible pairs of bits. Let’s draw those symbols from the other sets. Here’s an example:&lt;/p&gt;
+&lt;p&gt;P&lt;sub&gt;6&lt;/sub&gt;: 1111110 &lt;/p&gt;
+&lt;p&gt;P&lt;sub&gt;4&lt;/sub&gt;: 0001111 &lt;/p&gt;
+&lt;p&gt;P&lt;sub&gt;4&lt;/sub&gt;: 1110001&lt;/p&gt;
+&lt;p&gt;This set consumes one P&lt;sub&gt;6&lt;/sub&gt; and two P&lt;sub&gt;4&lt;/sub&gt;s. We only have 7 P&lt;sub&gt;6&lt;/sub&gt;s and 35 P&lt;sub&gt;4&lt;/sub&gt;s to go around, so if we define 7 such sets, we’ve spent all of our P&lt;sub&gt;6&lt;/sub&gt;s and 14 of our P&lt;sub&gt;4&lt;/sub&gt;s.&lt;/p&gt;
+&lt;p&gt;Let’s see if we can find a set that is less expensive. Again starting with a P&lt;sub&gt;6&lt;/sub&gt; and a P&lt;sub&gt;4&lt;/sub&gt;, we can subdivide the remaining bits like this.&lt;/p&gt;
+&lt;p&gt;P&lt;sub&gt;6&lt;/sub&gt;: 1111110 &lt;/p&gt;
+&lt;p&gt;P&lt;sub&gt;4&lt;/sub&gt;: 0001111 &lt;/p&gt;
+&lt;p&gt;P&lt;sub&gt;3&lt;/sub&gt;: 0110001 &lt;/p&gt;
+&lt;p&gt;P&lt;sub&gt;2&lt;/sub&gt;: 1000001&lt;/p&gt;
+&lt;p&gt;This takes more symbols, but we’ve spread the cost out a bit more. We can still only have 7 of these, since the P&lt;sub&gt;6&lt;/sub&gt;s are the limiting factor, but they leave a lot more of the P&lt;sub&gt;4&lt;/sub&gt;s for other sets to use. This set uses a P&lt;sub&gt;2&lt;/sub&gt;, which will be the initial symbol for the letter to which it is assigned.&lt;/p&gt;
+&lt;p&gt;I’ll let you go through the exercise of identifying the sets that can be reached from the P&lt;sub&gt;2&lt;/sub&gt;s. As you do, you can break them down by their cost in terms of symbols from each tier. This is what you will find:&lt;/p&gt;
+&lt;table cellspacing=&quot;0&quot; cellpadding=&quot;2&quot; width=&quot;439&quot; border=&quot;0&quot;&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td valign=&quot;top&quot; width=&quot;67&quot;&gt;Set&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;63&quot;&gt;P7&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;63&quot;&gt;P6&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;63&quot;&gt;P5&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;64&quot;&gt;P4&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;59&quot;&gt;P3&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;58&quot;&gt;P2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td valign=&quot;top&quot; width=&quot;68&quot;&gt;S&lt;sub&gt;1&lt;/sub&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;64&quot;&gt;1&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;64&quot;&gt;&amp;#160;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;64&quot;&gt;&amp;#160;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;65&quot;&gt;&amp;#160;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;60&quot;&gt;&amp;#160;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;58&quot;&gt;&amp;#160;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td valign=&quot;top&quot; width=&quot;68&quot;&gt;S&lt;sub&gt;2&lt;/sub&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;65&quot;&gt;&amp;#160;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;65&quot;&gt;1&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;64&quot;&gt;&amp;#160;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;65&quot;&gt;2&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;61&quot;&gt;&amp;#160;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;59&quot;&gt;&amp;#160;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td valign=&quot;top&quot; width=&quot;68&quot;&gt;S&lt;sub&gt;3&lt;/sub&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;65&quot;&gt;&amp;#160;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;65&quot;&gt;1&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;64&quot;&gt;&amp;#160;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;65&quot;&gt;1&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;62&quot;&gt;1&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;60&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td valign=&quot;top&quot; width=&quot;68&quot;&gt;S&lt;sub&gt;4&lt;/sub&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;65&quot;&gt;&amp;#160;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;65&quot;&gt;&amp;#160;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;64&quot;&gt;1&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;65&quot;&gt;2&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;62&quot;&gt;1&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;60&quot;&gt;&amp;#160;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td valign=&quot;top&quot; width=&quot;68&quot;&gt;S&lt;sub&gt;5&lt;/sub&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;65&quot;&gt;&amp;#160;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;65&quot;&gt;&amp;#160;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;64&quot;&gt;1&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;65&quot;&gt;1&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;62&quot;&gt;3&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;60&quot;&gt;&amp;#160;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td valign=&quot;top&quot; width=&quot;68&quot;&gt;S&lt;sub&gt;6&lt;/sub&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;65&quot;&gt;&amp;#160;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;65&quot;&gt;&amp;#160;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;64&quot;&gt;1&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;65&quot;&gt;1&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;62&quot;&gt;2&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;60&quot;&gt;2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td valign=&quot;top&quot; width=&quot;68&quot;&gt;S&lt;sub&gt;7&lt;/sub&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;65&quot;&gt;&amp;#160;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;65&quot;&gt;&amp;#160;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;64&quot;&gt;&amp;#160;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;65&quot;&gt;4&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;62&quot;&gt;1&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;60&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;The set S&lt;sub&gt;6&lt;/sub&gt; is interesting. It consumes 2 P&lt;sub&gt;2&lt;/sub&gt;s. One of those P&lt;sub&gt;2&lt;/sub&gt;s will be the initial symbol for the letter to which it is assigned. The second will be one of the 3 remaining P&lt;sub&gt;2&lt;/sub&gt;s that are not initial symbols. So there can only be at most 3 letters in S&lt;sub&gt;6&lt;/sub&gt;.&lt;/p&gt;
+&lt;h3&gt;The solution&lt;/h3&gt;
+&lt;p&gt;&lt;font size=&quot;4&quot;&gt;&lt;strong&gt;Update&lt;/strong&gt;: The following is incorrect. Stefan Stenzel (&lt;/font&gt;&lt;a href=&quot;http://twitter.com/5tenzel&quot;&gt;&lt;font size=&quot;4&quot;&gt;@5tenzel&lt;/font&gt;&lt;/a&gt;&lt;font size=&quot;4&quot;&gt;) showed me a solution to this problem, which let me reverse-engineer my mistake. See if you can spot it. Select the hidden text at the bottom of the post to reveal the solution.&lt;/font&gt;&lt;/p&gt;
+&lt;p&gt;And now we have enough information to solve the problem. All we need to do is determine how many of each set we can assign to the 26 letters of our alphabet. We can compute the cost in terms of symbols in each of the tiers P&lt;sub&gt;2&lt;/sub&gt; through P&lt;sub&gt;7&lt;/sub&gt;. We know exactly how many of those symbols we have. So this is just an optimization problem.&lt;/p&gt;
+&lt;p&gt;The optimal way to assign those sets is:&lt;/p&gt;
+&lt;p&gt;1S&lt;sub&gt;1&lt;/sub&gt;, 7S&lt;sub&gt;3&lt;/sub&gt;, 10S&lt;sub&gt;4&lt;/sub&gt;, 4S&lt;sub&gt;5&lt;/sub&gt;, and 3S&lt;sub&gt;6&lt;/sub&gt;.&lt;/p&gt;
+&lt;p&gt;This consumes 1P&lt;sub&gt;7&lt;/sub&gt;, 7P&lt;sub&gt;6&lt;/sub&gt;, 17P&lt;sub&gt;5&lt;/sub&gt;, 34P&lt;sub&gt;4&lt;/sub&gt;, 35P&lt;sub&gt;3&lt;/sub&gt;, and 13P&lt;sub&gt;2&lt;/sub&gt;. We have no more P&lt;sub&gt;3&lt;/sub&gt;s left. We could trade an S&lt;sub&gt;5&lt;/sub&gt; for an S&lt;sub&gt;4&lt;/sub&gt; to get two more P&lt;sub&gt;3&lt;/sub&gt;s, but then we have no more P&lt;sub&gt;4&lt;/sub&gt;s left.&lt;/p&gt;
+&lt;p&gt;But this is only 25 sets. 1 + 7 + 10 + 4 + 3 = 25. We don’t have enough sets to assign to all 26 letters. The pigeon-hole principle strikes again.&lt;/p&gt;
+&lt;p&gt;So the solution is a non-solution. This is an impossible problem. Proving that it was impossible was difficult in itself. But it has provided us some value. For example, we know that we are likely to find a solution with a 25 letter alphabet. And we are likely to find a solution with an 8 hole tape. We won’t waste any time searching for a solution where we know that none can exist.&lt;/p&gt;
+&lt;p&gt;This type of proof – that a solution does not exist – has been extremely important in the history of computer science. I refer you to the Gödel Incompleteness Theorem, Church and Turing on the Entscheidungsproblem, Turing’s Halting Problem, and P vs NP.&lt;/p&gt;
+&lt;h3&gt;&lt;font color=&quot;#ffffff&quot;&gt;The mistake&lt;/font&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;font color=&quot;#ffffff&quot;&gt;The mistake was that the P&lt;sub&gt;2&lt;/sub&gt;s that are not initial symbols are not consumed by a set. I made this mistake twice. First, I claimed that the P2 in a set must be the initial symbol of the assigned letter. That was wrong: it could be a leftover P&lt;sub&gt;2&lt;/sub&gt;. Second, I claimed that there could be no more that 3 sets containing 2 P&lt;sub&gt;2&lt;/sub&gt;s. That is incorrect because the leftover P&lt;sub&gt;2&lt;/sub&gt;s can appear in any number of sets.&lt;/font&gt;&lt;/p&gt;
+&lt;p&gt;&lt;font color=&quot;#ffffff&quot;&gt;To make matters worse, I did not create a complete table of sets. I gave up on combinations that I assumed would consume too many symbols. Complete the table and allow the leftovers to be reused, and you get plenty of wiggle room to allow a solution. Stefan’s solution had the following sets:&lt;/font&gt;&lt;/p&gt;
+&lt;table cellspacing=&quot;0&quot; cellpadding=&quot;2&quot; width=&quot;400&quot; border=&quot;0&quot;&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;P&lt;sub&gt;7&lt;/sub&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;P&lt;sub&gt;6&lt;/sub&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;P&lt;sub&gt;5&lt;/sub&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;P&lt;sub&gt;4&lt;/sub&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;P&lt;sub&gt;3&lt;/sub&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;P&lt;sub&gt;2&lt;/sub&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;Count&lt;/font&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;1&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;1&lt;/font&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;1&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;2&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;2&lt;/font&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;1&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;1&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;2&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;3&lt;/font&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;1&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;1&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;1&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;1&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;1&lt;/font&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;1&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;2&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;2&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;1&lt;/font&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;2&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;1&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;1&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;3&lt;/font&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;2&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;1&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;1&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;2&lt;/font&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;1&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;2&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;1&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;8&lt;/font&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;1&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;1&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;2&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;2&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;2&lt;/font&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;1&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;4&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;3&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;1&lt;/font&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;4&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;3&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;1&lt;/font&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;2&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;3&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;3&lt;/font&gt;&lt;/td&gt;
+&lt;td valign=&quot;top&quot; width=&quot;57&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;1&lt;/font&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;font color=&quot;#ffffff&quot;&gt;Which very neatly consumes 1P&lt;sub&gt;7&lt;/sub&gt;, 7P&lt;sub&gt;6&lt;/sub&gt;, 21P&lt;sub&gt;5&lt;/sub&gt;, 35P&lt;sub&gt;4&lt;/sub&gt;, and 30P&lt;sub&gt;3&lt;/sub&gt;. The P&lt;sub&gt;2&lt;/sub&gt;s are not all consumed, because many of them are the leftovers, reused from one set to the next.&lt;/font&gt;&lt;/p&gt;
+&lt;p&gt;&lt;font color=&quot;#ffffff&quot;&gt;Sefan’s solution is: ABCIDKMEEOQBSYTLFUWTYBGCTPDQNVWJGZ-YXGLZRJUVNDRPNWJXCFVKRZOMEISHH--SVTIUPDKRHSGNLYIWOMLRJKFECOZXJRZBJEYOXTICKWQFHSUNTQPDVLYGMUBA&lt;/font&gt;&lt;/p&gt;
+</description>
+ <comments>http://qedcode.com/content/solution-punch-22-challenge#comments</comments>
+ <pubDate>Fri, 09 Jan 2015 15:23:31 +0000</pubDate>
+ <dc:creator>Michael L Perry</dc:creator>
+ <guid isPermaLink="false">113 at http://qedcode.com</guid>
+</item>
+<item>
+ <title>Create a dependency map of SQL tables from foreign key constraints</title>
+ <link>http://qedcode.com/sql-dependency-map</link>
+ <description>&lt;p&gt;A great tool for analyzing relationships is &lt;a href=&quot;http://graphviz.org&quot;&gt;GraphViz&lt;/a&gt;. Install it and open up GvEdit. Now you can enter a text representation of a directed graph:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;digraph &quot;AdventureWorks2012_CS&quot; {&lt;br /&gt;
+&amp;nbsp; rankdir = BT&lt;br /&gt;
+&amp;nbsp; ProductSubcategory -&gt; ProductCategory&lt;br /&gt;
+&amp;nbsp; Product -&gt; ProductSubcategory&lt;br /&gt;
+&amp;nbsp; Product -&gt; UnitMeasure&lt;br /&gt;
+}&lt;br /&gt;
+&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Run the graph generator and it produces a nice visual representation.&lt;/p&gt;
+&lt;p&gt;&lt;image src=&quot;http://qedcode.com/sites/default/files/SqlGraph/Product.png&quot;/&gt;&lt;/image&gt;&lt;/p&gt;
+&lt;p&gt;The first line -- rankdir = BT -- tells GraphViz to rank items from bottom to top as it lays out dependencies. This makes all arrows point up. If you ever find an arrow pointing down, then that is part of a cycle.&lt;/p&gt;
+&lt;p&gt;To analyze a SQL schema, set your SQL output to text and run this query:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;SELECT line FROM (&lt;br /&gt;
+&amp;nbsp; SELECT&lt;br /&gt;
+&amp;nbsp; &amp;nbsp; &#039;digraph &quot;&#039; + DB_NAME() + &#039;&quot; {&#039; as line, 1 as position&lt;br /&gt;
+&amp;nbsp; UNION SELECT&lt;br /&gt;
+&amp;nbsp; &amp;nbsp; &#039;  rankdir = BT&#039; as line, 2 as position&lt;br /&gt;
+&amp;nbsp; UNION SELECT&lt;br /&gt;
+&amp;nbsp; &amp;nbsp; &#039;  &#039; + FK.TABLE_NAME + &#039; -&gt; &#039; + PK.TABLE_NAME as line, 3 as position&lt;br /&gt;
+&amp;nbsp; &amp;nbsp; FROM INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS C&lt;br /&gt;
+&amp;nbsp; &amp;nbsp; INNER JOIN INFORMATION_SCHEMA.TABLE_CONSTRAINTS FK ON C.CONSTRAINT_NAME = FK.CONSTRAINT_NAME&lt;br /&gt;
+&amp;nbsp; &amp;nbsp; INNER JOIN INFORMATION_SCHEMA.TABLE_CONSTRAINTS PK ON C.UNIQUE_CONSTRAINT_NAME = PK.CONSTRAINT_NAME&lt;br /&gt;
+&amp;nbsp; UNION SELECT&lt;br /&gt;
+&amp;nbsp; &amp;nbsp; &#039;}&#039; as line, 4 as position&lt;br /&gt;
+) l&lt;br /&gt;
+ORDER BY position&lt;br /&gt;
+&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Then copy the text output and paste into GvEdit. Now you have an overview of your SQL data model with related tables clustered together, and the high-level entities at the top.&lt;/p&gt;
+</description>
+ <comments>http://qedcode.com/sql-dependency-map#comments</comments>
+ <pubDate>Tue, 23 Dec 2014 17:09:28 +0000</pubDate>
+ <dc:creator>Michael L Perry</dc:creator>
+ <guid isPermaLink="false">112 at http://qedcode.com</guid>
+</item>
+<item>
+ <title>Toward Pattern Matching in C#</title>
+ <link>http://qedcode.com/toward-pattern-matching-in-csharp</link>
+ <description>&lt;p&gt;A powerful tool in many functional programming languages is called &amp;quot;pattern matching&amp;quot;. It is a concise syntax for expressing conditions based on the shape of a value. For example, in Haskell, the factorial function can be expressed as a pattern:&lt;/p&gt;
+&lt;pre&gt;factorial :: (Integral a) =&gt; a -&gt; a  
+factorial 0 = 1  
+factorial n = n * factorial (n - 1)
+&lt;/pre&gt;&lt;p&gt;
+&lt;a href=&quot;http://learnyouahaskell.com/syntax-in-functions&quot;&gt;Learn You a Haskell: Syntax in Functions&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Often the pattern is expressed in terms of the type of the value. For example, Maybe is a type that can either be Nothing or Just some value.&lt;/p&gt;
+&lt;pre&gt;applyMaybe :: Maybe a -&gt; (a -&gt; Maybe b) -&gt; Maybe b  
+applyMaybe Nothing f  = Nothing  
+applyMaybe (Just x) f = f x
+&lt;/pre&gt;&lt;p&gt;
+&lt;a href=&quot;http://learnyouahaskell.com/a-fistful-of-monads&quot;&gt;Learn You a Haskell: A Fistful of Monads&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Notice that the pattern extracts the parts of the value, and gives you names for those parts.&lt;/p&gt;
+&lt;h3&gt;Toward patterns in C#&lt;/h3&gt;
+&lt;p&gt;So what would patterns look like in C#? Here&amp;apos;s a start. I&amp;apos;m not sure where I will take this, if anywhere.&lt;/p&gt;
+&lt;p&gt;Say we wanted to return one of two things from a function, based on whether it was successful or not. &lt;/p&gt;
+&lt;pre&gt;private Pattern&amp;lt;int, Error&amp;gt; ParseInteger(string s, string description)
+{
+    int value;
+    if (!int.TryParse(s, out value))
+        return new Error(new List&amp;lt;string&amp;gt;
+        {
+            String.Format(&amp;quot;Invalid value for {0}: {1}.&amp;quot;, description, s)
+        });
+    else
+        return value;
+}
+&lt;/pre&gt;&lt;p&gt;
+We define a Pattern class taking generic parameters indicating the types that could be returned. To make it possible to return the types directly as written above, we define implicit operators.&lt;/p&gt;
+&lt;pre&gt;public abstract class Pattern&amp;lt;TOption1, TOption2&amp;gt;
+{
+    public static implicit operator Pattern&amp;lt;TOption1, TOption2&amp;gt;(TOption1 value)
+    {
+        return new Match&amp;lt;TOption1, TOption1, TOption2&amp;gt;(value);
+    }
+
+    public static implicit operator Pattern&amp;lt;TOption1, TOption2&amp;gt;(TOption2 value)
+    {
+        return new Match&amp;lt;TOption2, TOption1, TOption2&amp;gt;(value);
+    }
+}
+&lt;/pre&gt;&lt;p&gt;
+Here we create a Match type, which inherits Pattern to represent one of the two options.&lt;/p&gt;
+&lt;pre&gt;class Match&amp;lt;TValue, TOption1, TOption2&amp;gt; : Pattern&amp;lt;TOption1, TOption2&amp;gt;
+{
+    private readonly TValue _value;
+
+    internal Match(TValue value)
+    {
+        _value = value;
+    }
+}
+&lt;/pre&gt;&lt;p&gt;
+Unfortunately, there is no way in C# to express the constraint that TValue is either TOption1 or TOption2. However, that constraint is implicit in the way that a Match is constructed. By making this class private and its constructor internal, we ensure that only classes in the assembly (i.e. Pattern) can create a Match.&lt;/p&gt;
+&lt;h3&gt;Selecting a path based on the pattern&lt;/h3&gt;
+&lt;p&gt;Now that we have the Pattern class, and can construct a Match to satisfy the pattern, we can select our response. For example, we could do the following:&lt;/p&gt;
+&lt;pre&gt;ParseInteger(s, &amp;quot;iteration count&amp;quot;)
+    .If&amp;lt;int&amp;gt;(i =&gt; _configuration.IterationCount = i)
+    .If&amp;lt;Error&amp;gt;(HandleError)
+&lt;/pre&gt;&lt;p&gt;
+Here HandleError is a method taking an Error object. We can define the If method in Pattern as follows:&lt;/p&gt;
+&lt;pre&gt;public abstract class Pattern&amp;lt;TOption1, TOption2&amp;gt;
+{
+    public abstract Pattern&amp;lt;TOption1, TOption2&amp;gt; If&amp;lt;T&amp;gt;(Action&amp;lt;T&amp;gt; action);
+}
+&lt;/pre&gt;&lt;p&gt;
+Again, we can&amp;apos;t express the generic constraint that T is one of TOption1 or TOption2. And this time, we don&amp;apos;t have any context that enforces that relationship. We just need to trust that the consumer of this API wouldn&amp;apos;t write something that would never match.&lt;br /&gt;
+We satisfy this abstract method in the Match derived class.&lt;/p&gt;
+&lt;pre&gt;class Match&amp;lt;TValue, TOption1, TOption2&amp;gt; : Pattern&amp;lt;TOption1, TOption2&amp;gt;
+{
+    public override Pattern&amp;lt;TOption1, TOption2&amp;gt; If&amp;lt;T&amp;gt;(Action&amp;lt;T&amp;gt; action)
+    {
+        if (typeof(T) == typeof(TValue))
+        {
+            action((T)(object)_value);
+            return Matched;
+        }
+        return this;
+    }
+}
+&lt;/pre&gt;&lt;p&gt;
+The C# compiler &lt;em&gt;could&lt;/em&gt; actually expand the generic parameters at compile time and come up with a constant for the condition. That would allow it to optimize this method body to one of the two branches. I don&amp;apos;t think it actually &lt;em&gt;does&lt;/em&gt;, but it could be measured.&lt;/p&gt;
+&lt;p&gt;The Matched object returned when the condition is matched is a simple flyweight that always fails an If.&lt;/p&gt;
+&lt;pre&gt;class Matched&amp;lt;TOption1, TOption2&amp;gt; : Pattern&amp;lt;TOption1, TOption2&amp;gt;
+{
+    public override Pattern&amp;lt;TOption1, TOption2&amp;gt; If&amp;lt;T&amp;gt;(Action&amp;lt;T&amp;gt; action)
+    {
+        return this;
+    }
+}
+&lt;/pre&gt;&lt;p&gt;
+The flyweight is instantiated in Pattern.&lt;/p&gt;
+&lt;pre&gt;public abstract class Pattern&amp;lt;TOption1, TOption2&amp;gt;
+{
+    protected static readonly Pattern&amp;lt;TOption1, TOption2&amp;gt; Matched = new Matched&amp;lt;TOption1, TOption2&amp;gt;();
+}
+&lt;/pre&gt;&lt;h3&gt;Future directions&lt;/h3&gt;
+&lt;p&gt;To make this Pattern class generally useful, it needs to be expanded in a number of ways. First, the number of options must be made flexible. It should support three, four, or possibly even just one option. This could be done through nesting (Pattern&amp;lt;T1, Pattern&amp;lt;T2, T3&amp;gt;&amp;gt;).&lt;/p&gt;
+&lt;p&gt;Second, the If method should also support conditions. In Haskell, these are called guard clauses. It isn&amp;apos;t just the type of the expression that matters, it&amp;apos;s also the value.&lt;/p&gt;
+&lt;p&gt;Third, there should be an Else method that is called if none of the If methods match. This should be easy to construct.&lt;/p&gt;
+&lt;p&gt;Fourth, the If method should take Func&amp;lt;T, TResult&amp;gt;, and not just Action&amp;lt;T&amp;gt;. You should be able to use pattern matching within an expression. Quite possibly, the expression would return yet more Pattern types based on the types of all of its results, so that patterns could be further composed.&lt;/p&gt;
+&lt;p&gt;And fifth, we should be able to concisely express an action to be taken at any point within a composition. For example, the HandleError method used above should be called on any path where Error is encountered.&lt;/p&gt;
+&lt;p&gt;There are almost certainly more ways that this concept can be expanded. Do you have any ideas you would like to try?&lt;/p&gt;
+</description>
+ <comments>http://qedcode.com/toward-pattern-matching-in-csharp#comments</comments>
+ <pubDate>Mon, 27 Oct 2014 19:50:31 +0000</pubDate>
+ <dc:creator>Michael L Perry</dc:creator>
+ <guid isPermaLink="false">110 at http://qedcode.com</guid>
+</item>
+<item>
+ <title>Three-Way Data Binding in Universal Apps: View, View Model, and Cloud</title>
+ <link>http://qedcode.com/speaking/three-way</link>
+ <description>&lt;p&gt;XAML gives us two-way data binding: view to view model. But how do you synchronize data between phones and tablets? Learn how to data bind to the cloud. When a change is made on one device, the change appears on another. Data flows seamlessly across devices.&lt;/p&gt;
+&lt;p&gt;But those devices aren&#039;t always connected. And even when they are, users don&#039;t want to wait for a network connection before they can see or work with their data. So data needs to be stored locally, and synchronized in the background.&lt;/p&gt;
+&lt;p&gt;Build a universal app where the phone and tablet share a common data model. That model is synchronized through a cloud service and into local storage. Project that storage through the view model, and data bind it to the view.&lt;/p&gt;
+&lt;p&gt;Presented at Dallas TechFest 2014, DFW Mobile .NET User Group&lt;/p&gt;
+</description>
+ <comments>http://qedcode.com/speaking/three-way#comments</comments>
+ <pubDate>Sun, 05 Oct 2014 16:36:36 +0000</pubDate>
+ <dc:creator>Michael L Perry</dc:creator>
+ <guid isPermaLink="false">109 at http://qedcode.com</guid>
+</item>
+<item>
+ <title>Q.E.D. Code Podcast, Episode 1: Predicates</title>
+ <link>http://qedcode.com/podcast/1-predicates</link>
+ <description>&lt;p&gt;In the inaugural episode of the Q.E.D. Code Podcast, we introduce the concept of using predicate calculus to prove the correctness of software. Listen to the show at &lt;a href=&quot;http://qedcode.libsyn.com&quot;&gt;http://qedcode.libsyn.com&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;Predicates&lt;/h3&gt;
+&lt;p&gt;A predicate is a statement that has a truth value. It is either true or false. Predicates can be simple statements, or they can be build up using operators. The “implies” operator is particularly important to software, because it allows us to tie the state of the system to the line of code being executed.&lt;/p&gt;
+&lt;p&gt;The application of predicates to proving software correctness is covered in detail in Bertrand Meyer’s book &lt;strong&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Object-Oriented_Software_Construction&quot;&gt;Object Oriented Software Construction&lt;/a&gt;&lt;/strong&gt;. He defines a system called Design by Contract.&lt;/p&gt;
+&lt;p&gt;We follow predicates through lines of code until we reach a method. There, it is up to us to prove that it is correct to call the method at that time. We do so by validating the &lt;strong&gt;preconditions&lt;/strong&gt; of the method. These become predicates that the method can apply to the first line of its code, and follow through its execution.&lt;/p&gt;
+&lt;p&gt;When a method is finished, it asserts some &lt;strong&gt;postconditions&lt;/strong&gt;. These become predicates that we as the caller can use to assert preconditions of later method calls.&lt;/p&gt;
+&lt;h3&gt;Refactoring&lt;/h3&gt;
+&lt;p&gt;Algebra teaches us methods of rewriting equations to derive a solution to a problem. Refactoring is a similar process done on code.&lt;/p&gt;
+&lt;p&gt;Martin Fowler formalized the process in his book &lt;strong&gt;&lt;a href=&quot;http://martinfowler.com/books/refactoring.html&quot;&gt;Refactoring: Improving the Design of Existing Code&lt;/a&gt;&lt;/strong&gt;. Refactorings are modifications to code that do not change its behavior. He provides systematic ways of applying these changes, in a way that gives us confidence that we do not break the system along the way.&lt;/p&gt;
+&lt;p&gt;The opposite of a refactoring is a transformation. This is a change that modifies the behavior of the code. Robert C. Martin has organized them in the &lt;strong&gt;&lt;a href=&quot;http://blog.8thlight.com/uncle-bob/2013/05/27/TheTransformationPriorityPremise.html&quot;&gt;Transformation Priority Premise&lt;/a&gt;&lt;/strong&gt;, which favors simpler changes over more complex ones. If we apply changes in this order, he reasons, we will make smaller changes and end up with simpler code.&lt;/p&gt;
+&lt;h3&gt;John von Neumann&lt;/h3&gt;
+&lt;p&gt;Born in Budapest Hungary in 1903, &lt;a href=&quot;http://en.wikipedia.org/wiki/John_von_Neumann&quot;&gt;John von Neumann&lt;/a&gt; was a mathematical prodigy. He contributed to a broad range of subjects, including algebra, set theory, and economics. He even defined whole new lines of study, most significantly of game theory.&lt;/p&gt;
+&lt;p&gt;Game theory tells us how players will respond in non-cooperative scenarios. The simplest of scenarios is a zero-sum game of perfect information. These are games like tic-tac-toe, Connect Four, and chess, where all of the information is available to all players at all times. And for one player to win, the other must lose.&lt;/p&gt;
+&lt;p&gt;But his theory expands to more than just the chess board. Games can have non-zero sums and imperfect information. These types of games arise in business negotiations, and during war time. John von Neumann applied game theory to some very difficult problems in these areas, and even coined the phrase Mutually Assured Destruction (MAD). An example of the application of game theory to war time can be found in the 1983 movie &lt;a href=&quot;http://en.wikipedia.org/wiki/WarGames&quot;&gt;War Games&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;His contributions to the field of computing were no less revolutionary. He brought the idea of stored programs to the designs of the ENIAC and EDVAC computers. Before this, computers were constructed to solve a specific problem. They had their instructions hard wired into their processing units. But von Neumann designed a machine code that could be stored in the computer’s memory. This allowed the computer to be reprogrammed to solve new problems.&lt;/p&gt;
+&lt;p&gt;Now all digital computers that we use today employ the von Neumann architecture.&lt;/p&gt;
+</description>
+ <comments>http://qedcode.com/podcast/1-predicates#comments</comments>
+ <pubDate>Sun, 07 Sep 2014 02:23:27 +0000</pubDate>
+ <dc:creator>Michael L Perry</dc:creator>
+ <guid isPermaLink="false">108 at http://qedcode.com</guid>
+</item>
+<item>
+ <title>Cryptography Fundamentals</title>
+ <link>http://qedcode.com/content/cryptography-fundamentals</link>
+ <description>&lt;p&gt;One of the most direct applications of mathematics to software is cryptography. The mathematics of cryptography give us confidence that messages are authentic and confidential. How does that work?&lt;/p&gt;
+&lt;h2&gt;Information Theory&lt;/h2&gt;
+&lt;p&gt;Modern digital encryption is founded on the work of mathematician Claude E. Shannon. He taught us how to measure how much information is in a message.&lt;/p&gt;
+&lt;p&gt;This allows us to correct errors in transmission, compress files, and encrypt messages.&lt;/p&gt;
+&lt;p&gt;He measured information in bits. A bit, just as in a digital computer, is a unit that can be in one of two states. If your language only allows you to say two things (say it only contains the words “car” and “derrigible”) then a statement only has one bit of information in it. You chose one or the other. It doesn’t matter how long the words are.&lt;/p&gt;
+&lt;p&gt;If you can choose one of four statements, then your language has 2 bits. One of 8, it has 3 bits. So what if you could choose from a possible set of 10 things to say? In other words, how many bits of information are in a decimal digit? Simple: log&lt;sub&gt;2&lt;/sub&gt; 10 = 3.32 bits.&lt;/p&gt;
+&lt;p&gt;Languages that are highly redundant have fewer bits of information than the actual text used to express them. For example, in English, a letter “q” is usually followed by a “u”. That means that the “u” is largely redundant. Even though it takes another log&lt;sub&gt;2&lt;/sub&gt; 26 = 4.7 bits of information to write the additional letter, it doesn’t contribute much more information to the message.&lt;/p&gt;
+&lt;p&gt;The ratio of information in a message as compared to the length of the message is its relative entropy. 1 minus entropy is redundancy. The English language contains about 50% entropy, 50% redundancy. That’s why English text can be compressed to about 50% of its original size.&lt;/p&gt;
+&lt;p&gt;When we compress, we squeeze out redundancy. The message gets close to having a 1:1 entropy ratio. And when we transmit a message over a noisy channel, we can add redundancy to make it possible to reconstruct the message on the other side if parts of it get scrambled.&lt;/p&gt;
+&lt;p&gt;But what about encryption? Well, to encrypt a message, you want to combine the information from two different channels. You need to do this in such a way that it is difficult to separate the information once its combined.&lt;/p&gt;
+&lt;p&gt;The two channels that we’ll combine are the key and the plaintext. They mix together to form the ciphertext. Information theory tells us how difficult it will be to separate the two again, assuming that you don’t already have one or the other (the key or the plaintext).&lt;/p&gt;
+&lt;p&gt;To securely encrypt a message, we have to spread the information in both the key and the message evenly throughout the ciphertext. So a small change in the key leads to a large change in the ciphertext. And a small change in the plaintext also leads to a large change in the ciphertext. Spreading the key is called &lt;strong&gt;confusion&lt;/strong&gt;. Spreading the plaintext is called &lt;strong&gt;diffusion&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;The algorithms that we’ve designed for symmetric encryption do a good job of both confusion and diffusion. AES, the Advanced Encryption Standard, is a good example.&lt;/p&gt;
+&lt;h2&gt;Inverse Functions&lt;/h2&gt;
+&lt;p&gt;Symmetric keys have to&amp;#160; be exchanged to be useful. They have to be moved. And in so moving, they may be compromised. So how can we exchange symmetric keys with someone over a potentially unsecure network? And how can we be sure of the identity of the recipient? What about the identity of the sender?&lt;/p&gt;
+&lt;p&gt;To solve these problems, we can use inverse functions. Suppose that I make up two functions, f(x) and f&lt;sup&gt;-1&lt;/sup&gt;(x). If I give you the first, but keep the inverse for myself, then you can challenge me. You make up a random number, and run it through f(x). They you give me the answer and ask me what was your random number. Only someone who knows f&lt;sup&gt;-1&lt;/sup&gt;(x) could tell you. And I haven’t shared f&lt;sup&gt;-1&lt;/sup&gt;(x) with anybody, so if I get it right it must be me.&lt;/p&gt;
+&lt;p&gt;You can do the same thing to send me a secret message. Just encrypt it with a symmetric key, then run the symmetric key through f(x) and send me the answer. It doesn’t matter if an eavesdropper intercepts it. They don’t know f&lt;sup&gt;-1&lt;/sup&gt;(x). So only I can get back to the key for the message.&lt;/p&gt;
+&lt;p&gt;Ah, you say. But what if I replaced the correct message with a fake? Well, I’ve got you there, too. You see, the &lt;em&gt;sender&lt;/em&gt; also has a&amp;#160; pair of inverse functions, g(x) and g&lt;sup&gt;-1&lt;/sup&gt;(x). I know g(x). He used g&lt;sup&gt;-1&lt;/sup&gt;(x) on a hash of the message and sent that, too. That’s called the signature. So I can hash the message I receive, and run his signature through g(x). If I come up with the same number, then I know the message must have come from him.&lt;/p&gt;
+&lt;p&gt;You can find out more about the mathematics and mechanics of modern digital encryption at &lt;a href=&quot;http://cryptofundamentals.com&quot;&gt;http://cryptofundamentals.com&lt;/a&gt;.&lt;/p&gt;
+</description>
+ <comments>http://qedcode.com/content/cryptography-fundamentals#comments</comments>
+ <pubDate>Fri, 21 Mar 2014 02:06:35 +0000</pubDate>
+ <dc:creator>Michael L Perry</dc:creator>
+ <guid isPermaLink="false">107 at http://qedcode.com</guid>
+</item>
+<item>
+ <title>The end of null reference exceptions</title>
+ <link>http://qedcode.com/content/end-null-reference-exceptions</link>
+ <description>&lt;p&gt;&lt;a href=&quot;http://qedcode.com/sites/default/files/Null-objects-in-Correspondence_8E54/non-null.png&quot;&gt;&lt;img title=&quot;non-null&quot; style=&quot;border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; float: right; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px&quot; border=&quot;0&quot; alt=&quot;non-null&quot; align=&quot;right&quot; src=&quot;http://qedcode.com/sites/default/files/Null-objects-in-Correspondence_8E54/non-null_thumb.png&quot; width=&quot;240&quot; height=&quot;150&quot; /&gt;&lt;/a&gt;Correspondence 2.0 is released! Please download the latest package from NuGet. Search for Correspondence and install the package appropriate for each project in your solution:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Correspondence.App – The main application (Windows 8, Windows Phone, WPF, or Silverlight) &lt;/li&gt;
+&lt;li&gt;Correspondence.Web.App – The main application (MVC) &lt;/li&gt;
+&lt;li&gt;Correspondence.Model – The model assembly (any client) &lt;/li&gt;
+&lt;li&gt;Correspondence.UnitTest – The unit test assembly (any client) &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Or get the model and application in one project:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Correspondence.AllInOne – Windows 8, Windows Phone, WPF, or Silverlight) &lt;/li&gt;
+&lt;li&gt;Correspondence.Web.AllInOne – MVC &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Null objects&lt;/h3&gt;
+&lt;p&gt;Version 2.0 introduces null objects. Instead of returning null, the Correspondence API will now return an instance with the &lt;strong&gt;IsNull&lt;/strong&gt; property set to true. You no longer have to write code like this:&lt;/p&gt;
+&lt;pre class=&quot;code&quot;&gt;&lt;span style=&quot;background: white; color: blue&quot;&gt;if &lt;/span&gt;&lt;span style=&quot;background: white; color: black&quot;&gt;(_sessionPlace.Place == &lt;/span&gt;&lt;span style=&quot;background: white; color: blue&quot;&gt;null &lt;/span&gt;&lt;span style=&quot;background: white; color: black&quot;&gt;||
+    _sessionPlace.Place.Room == &lt;/span&gt;&lt;span style=&quot;background: white; color: blue&quot;&gt;null &lt;/span&gt;&lt;span style=&quot;background: white; color: black&quot;&gt;||
+    &lt;span style=&quot;background: white; color: #2b91af&quot;&gt;String&lt;/span&gt;&lt;span style=&quot;background: white; color: black&quot;&gt;.IsNullOrEmpty(&lt;/span&gt;_sessionPlace.Place.Room.RoomNumber.Value)&lt;/span&gt;&lt;span style=&quot;background: white; color: black&quot;&gt;)
+    &lt;/span&gt;&lt;span style=&quot;background: white; color: blue&quot;&gt;return null&lt;/span&gt;&lt;span style=&quot;background: white; color: black&quot;&gt;;
+
+&lt;/span&gt;&lt;span style=&quot;background: white; color: blue&quot;&gt;return &lt;/span&gt;&lt;span style=&quot;background: white; color: #a31515&quot;&gt;&amp;quot;Room: &amp;quot; &lt;/span&gt;&lt;span style=&quot;background: white; color: black&quot;&gt;+ _sessionPlace.Place.Room.RoomNumber.Value;
+&lt;/span&gt;&lt;/pre&gt;&lt;p&gt;Now you can eliminate all of those null checks. You will not get a null reference exception!&lt;/p&gt;
+&lt;p&gt;Object references from null objects will be other null objects. So you can string references together without worry. Native properties of null objects will be null or zero. So you can rewrite the above code as:&lt;/p&gt;
+&lt;pre class=&quot;code&quot;&gt;&lt;span style=&quot;background: white; color: blue&quot;&gt;string &lt;/span&gt;&lt;span style=&quot;background: white; color: black&quot;&gt;roomNumber = _sessionPlace.Place.Room.RoomNumber.Value;
+&lt;/span&gt;&lt;span style=&quot;background: white; color: blue&quot;&gt;return &lt;/span&gt;&lt;span style=&quot;background: white; color: #2b91af&quot;&gt;String&lt;/span&gt;&lt;span style=&quot;background: white; color: black&quot;&gt;.IsNullOrEmpty(roomNumber)
+    ? &lt;/span&gt;&lt;span style=&quot;background: white; color: blue&quot;&gt;null
+    &lt;/span&gt;&lt;span style=&quot;background: white; color: black&quot;&gt;: &lt;/span&gt;&lt;span style=&quot;background: white; color: #a31515&quot;&gt;&amp;quot;Room: &amp;quot; &lt;/span&gt;&lt;span style=&quot;background: white; color: black&quot;&gt;+ roomNumber;
+&lt;/span&gt;&lt;/pre&gt;&lt;h3&gt;API changes&lt;/h3&gt;
+&lt;p&gt;I labeled this version 2.0 because it is technically a breaking change. If your code checks for null, that check will no longer be valid. Instead, you should check for one of the following new properties:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;IsNull – Returns true if an optional predecessor is null, or a reference property is not set. &lt;/li&gt;
+&lt;li&gt;IsLoaded – Returns true if a predecessor or reference property has finished loading. &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;All references are loaded asynchronously, so IsLoaded will initially be false. When it finishes loading, it will become true and your view model will reevaluate the expression. You can just write your view models normally, and you will get the benefit of asynchronous loading.&lt;/p&gt;
+&lt;p&gt;Outside of a view model getter, you may need to ensure that a predecessor or property is loaded before continuing. You can use these methods to do just that:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ensure() – Blocks until the fact is loaded. Returns the loaded fact. (Windows Phone, WPF, or Silverlight) &lt;/li&gt;
+&lt;li&gt;EnsureAsync() – Await to get the loaded fact. (Windows 8) &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Finally, the &lt;strong&gt;FindFact&lt;/strong&gt; method gets an upgrade. Not only does it return a null object if the fact is not found, it also has become observable. You can call FindFact in a view model. At first, it will return an IsLoaded = false object. Then, if the fact has not yet been created, it will change to an IsNull = false object. Finally, when the matching fact is added, it will return that fact. For each of these changes, your view model will notify property changed. The upshot is that you can write view models that depend upon facts that have not yet been created.&lt;/p&gt;
+&lt;pre class=&quot;code&quot;&gt;&lt;span style=&quot;background: white; color: #2b91af&quot;&gt;Slot &lt;/span&gt;&lt;span style=&quot;background: white; color: black&quot;&gt;slot = _community.FindFact(&lt;/span&gt;&lt;span style=&quot;background: white; color: blue&quot;&gt;new &lt;/span&gt;&lt;span style=&quot;background: white; color: #2b91af&quot;&gt;Slot&lt;/span&gt;&lt;span style=&quot;background: white; color: black&quot;&gt;(_attendee, _sessionPlace.Place.PlaceTime));
+&lt;/span&gt;&lt;span style=&quot;background: white; color: blue&quot;&gt;if &lt;/span&gt;&lt;span style=&quot;background: white; color: black&quot;&gt;(slot.CurrentSchedules.Any())
+    &lt;/span&gt;&lt;span style=&quot;background: white; color: blue&quot;&gt;return &lt;/span&gt;&lt;span style=&quot;background: white; color: #a31515&quot;&gt;&amp;quot;Scheduled&amp;quot;&lt;/span&gt;&lt;span style=&quot;background: white; color: black&quot;&gt;;
+&lt;/span&gt;&lt;span style=&quot;background: white; color: blue&quot;&gt;else
+    return &lt;/span&gt;&lt;span style=&quot;background: white; color: #a31515&quot;&gt;&amp;quot;Not scheduled&amp;quot;&lt;/span&gt;&lt;span style=&quot;background: white; color: black&quot;&gt;;
+&lt;/span&gt;&lt;/pre&gt;&lt;p&gt;At first there is no Slot fact for the sessions time slot. So FindFact returns a null object, and CurrentSchedules will be empty. When the user schedules the session, the app will create both the Slot fact and the subsequent Schedule fact. That will cause the view model property to change, FindFact will return the actual Slot, and CurrentSchedules will contain the new scheduled session.&lt;/p&gt;
+&lt;p&gt;The FindFactAsync method is deprecated. Use FindFact().EnsureAsync() instead.&lt;/p&gt;
+&lt;p&gt;Please try out the new null object support in Correspondence 2.0. You will need to update your code to remove null checks and replace them with the IsNull property where necessary. But for the most part, you can just chain references together, and you will get the desired result. And you will not get a null reference exception!&lt;/p&gt;
+</description>
+ <comments>http://qedcode.com/content/end-null-reference-exceptions#comments</comments>
+ <pubDate>Tue, 16 Apr 2013 16:13:45 +0000</pubDate>
+ <dc:creator>Michael L Perry</dc:creator>
+ <guid isPermaLink="false">106 at http://qedcode.com</guid>
+</item>
+</channel>
+</rss>
